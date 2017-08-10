@@ -1,6 +1,6 @@
 ---
 
-### Point Cloud Filters & Pipelines in PDAL
+### Point Cloud Filters<br>& Pipelines in PDAL
 #### FOSS4G 2017, 18 August 2017
 Bradley J Chambers, DigitalGlobe
 
