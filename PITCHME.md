@@ -1,22 +1,32 @@
 ---
 
-### R
-### OpenCPU Spark Executor
+# Point Cloud Filters & Pipelines in PDAL
+## FOSS4G 2017, 18 August 2017
 
-<span style="color:gray">An Apache Spark Package</span>
+<span style="color:gray">Bradley J Chambers, DigitalGlobe</span>
 
 ---
 
-### ROSE
+# Overview
 
-  - something
-  - else
+  - Python Package
+  - Docker Images
+  - IPython/Jupyter Examples
+  - Status of PCL Filters
+  - Filter-only Pipelines
 
-+++
+---
 
-### Task
+# Python Package
 
-```scala
-// comment
-Task task = Something
+The PDAL Python package can be installed via pip.
+
+```console
+pip install pdal
+```
+
+Once installed, simply
+
+```python
+import pdal
 ```
