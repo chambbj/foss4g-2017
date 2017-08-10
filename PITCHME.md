@@ -100,43 +100,43 @@ Bradley J Chambers, DigitalGlobe
 
 The remainder of the presentation will leverage our `pdal-notebook` and present examples in the context of the PDAL Python package (though CLI samples will be provided as well).
 
----
++++
 
 ### Creating a Pipeline
 
 +++?gist=1ef09c4a643dad8221452c63b2e55905
 
----
++++
 
 ### Validating & Executing the Pipeline
 
 +++?gist=5a305b98ceb5aa7e59b114f7382ae26a
 
----
++++
 
 ### Use the `ndarray`
 
 +++?gist=e603131cb635f2b82377e95c0d23f7b0
 
----
++++
 
 ### Or Pandas!
 
 +++?gist=c57ae3d82026dad87009a8e6c7e4ae0f
 
----
++++
 
 ### Analyze
 
 +++?gist=9f34a474e98e4498e5f8ed414a831333
 
----
++++
 
 ### Searching Near a Point
 
 +++?gist=d2b38485dfc4ba3e8463ffc894408838
 
----
++++
 
 ### DimRange
 
@@ -185,7 +185,7 @@ and `filters.assign`.
 }
 ```
 
----
++++
 
 ### Ignore
 
@@ -227,7 +227,7 @@ Now, with `ignore` we can
 
 Which allows us to retain noise points without having them impact the ground segmentation step.
 
----
++++
 
 ### Height Above Ground
 
@@ -237,7 +237,7 @@ Recall the kernel density of raw elevations...
 
 +++?gist=aded19784be1dcddd0a4e1fcd88939d6
 
----
++++
 
 Now, consider the `HeightAboveGround` dimension.
 
