@@ -138,7 +138,8 @@ The remainder of the presentation will leverage our `pdal-notebook` and present 
 
 ---
 
-<h3 align="center">DimRange</h3>
+### DimRange
+
 A [DimRange](https://www.pdal.io/stages/filters.range.html#ranges) is a
 * named dimension, and 
 * range of values.
@@ -147,10 +148,14 @@ Bounds can be inclusive (`[]`) or exclusive (`()`).
 
 Ranges can be negated (`!`).
 
++++
+
 For example,
 * `Z[10:]` selects all points with Z greater than or equal to 10
 * `Classification[2:2]` selects all points with classification of 2
 * `Red!(20:40]` selects all points with red values less than or equal to 20 as well as those with values greater than 40
+
++++
 
 Commonly used in both `filters.range`
 
@@ -168,6 +173,8 @@ json = u'''
 '''
 ```
 
++++
+
 and `filters.assign`.
 
 
@@ -183,6 +190,8 @@ json = u'''
 }
 '''
 ```
+
+---
 
 <h3 align="center">Ignore</h3>
 Two of PDAL's ground segmentation filters, `filters.pmf` and `filters.smrf`, can now specify a `DimRange` via the `ignore` parameter to specify points that should be ignored during processing.
