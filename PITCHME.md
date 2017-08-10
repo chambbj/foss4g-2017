@@ -17,13 +17,13 @@
 
 ---
 
-<h2 align="center">Python Package</h2>
+### Python Package
 
-The PDAL Python [package](https://pypi.python.org/pypi/PDAL) can be installed via [pip](https://pip.pypa.io/en/stable/).
+* The PDAL Python [package](https://pypi.python.org/pypi/PDAL) can be installed via [pip](https://pip.pypa.io/en/stable/).
 
 `pip install pdal`
 
-Once installed, simply
+* Once installed, simply
 
 ```python
 import pdal
