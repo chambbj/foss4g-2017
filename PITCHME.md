@@ -347,15 +347,17 @@ kuQvhBAJ6P8HxbTec3YHrFoAAAAASUVORK5CYII=
 <style>
     .dataframe thead tr:only-child th {
         text-align: right;
-        font-size: 80%;
+        font-size: 20%;
     }
 
     .dataframe thead th {
         text-align: left;
+        font-size: 20%;
     }
 
     .dataframe tbody tr th {
         vertical-align: top;
+        font-=size: 20%;
     }
 </style>
 <table border="1" class="dataframe">
