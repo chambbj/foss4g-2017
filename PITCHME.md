@@ -259,6 +259,10 @@ A small test.
 
 ---
 
+![KDE](figures/sample.png)
+
+---
+
 ```python
 json = u'''
 {
