@@ -140,13 +140,11 @@ The remainder of the presentation will leverage our `pdal-notebook` and present 
 
 ### DimRange
 
-A [DimRange](https://www.pdal.io/stages/filters.range.html#ranges) is a
-* named dimension, and 
-* range of values.
-
-Bounds can be inclusive (`[]`) or exclusive (`()`).
-
-Ranges can be negated (`!`).
+* A [DimRange](https://www.pdal.io/stages/filters.range.html#ranges) is a
+  * named dimension, and 
+  * range of values.
+* Bounds can be inclusive (`[]`) or exclusive (`()`).
+* Ranges can be negated (`!`).
 
 +++
 
@@ -160,8 +158,7 @@ For example,
 Commonly used in both `filters.range`
 
 
-```python
-json = u'''
+```json
 {
   "pipeline":[
     {
@@ -170,7 +167,6 @@ json = u'''
     }
   ]
 }
-'''
 ```
 
 +++
@@ -178,8 +174,7 @@ json = u'''
 and `filters.assign`.
 
 
-```python
-json = u'''
+```json
 {
   "pipeline":[
     {
@@ -188,7 +183,6 @@ json = u'''
     }
   ]
 }
-'''
 ```
 
 ---
