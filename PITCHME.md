@@ -329,3 +329,56 @@ kuQvhBAJ6P8HxbTec3YHrFoAAAAASUVORK5CYII=
 </div>
 
 </div>
+
+---
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[78]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>X</th>
+      <th>Y</th>
+      <th>Z</th>
+      <th>Intensity</th>
+      <th>ReturnNumber</th>
+      <th>NumberOfReturns</th>
+      <th>ScanDirectionFlag</th>
+      <th>EdgeOfFlightLine</th>
+      <th>Classification</th>
+      <th>ScanAngleRank</th>
+      <th>UserData</th>
+      <th>PointSourceId</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>38010.000000</td>
+      <td>3.801000e+04</td>
+      <td>38010.000000</td>
+      <td>38010.000000</td>
