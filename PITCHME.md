@@ -38,9 +38,12 @@ Docker Image
   - Existing PDAL image (`pdal/pdal:latest`) approaches 4 GB
   - Plugins on top of PDAL base image grow even larger
 
-| *Image* | *Tag* | *Size* |
+| **Image** | **Tag** | **Size** |
 |---------|-------|--------|
+| pdal/dependencies | 1.5 | 3.1GB |
+| pdal/dependencies | latest | 3.31GB |
 | pdal/pdal | 1.5 | 3.67GB |
+| pdal/pdal | latest | 3.67GB |
 
 ---
 
