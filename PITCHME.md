@@ -355,7 +355,7 @@ kuQvhBAJ6P8HxbTec3YHrFoAAAAASUVORK5CYII=
         font-size: 20%;
     }
 
-    .dataframe tbody tr th {
+    .dataframe tbody tr th td {
         vertical-align: top;
         font-size: 20%;
     }
