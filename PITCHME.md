@@ -889,7 +889,7 @@ ax2.scatter(after['X'], after['Y'], c=after['Z'], cmap='viridis', s=10);
 We can now do filter-only pipelines. Why is that important? Well, you could always create the pipeline, and do substitution:
 </div>
 
-```console
+```
 pdal pipeline pipeline.json \
     --readers.las.filename=input.las \
     --writers.las.filename=output.las
