@@ -29,13 +29,9 @@
 import pdal
 ```
 
----?gist=a5d9b3f40d13d19276b1b7a31f806393
-
----?gist=2352771
-
----?gist=782b23a67caf8376c83f15a1971d1eea
-
 ---?gist=1ef09c4a643dad8221452c63b2e55905
+
+### Creating a Pipeline
 
 ---
 
