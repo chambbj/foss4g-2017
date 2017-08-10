@@ -187,14 +187,13 @@ and `filters.assign`.
 
 ---
 
-<h3 align="center">Ignore</h3>
+### Ignore
+
 Two of PDAL's ground segmentation filters, `filters.pmf` and `filters.smrf`, can now specify a `DimRange` via the `ignore` parameter to specify points that should be ignored during processing.
 
 A common use case for this is to ignore points that have been previously marked as noise. In prior versions of PDAL, we had to filter noise out completely prior to ground segmentation.
 
-
-```python
-json = u'''
+```json
 {
   "pipeline":[
     {
@@ -206,16 +205,16 @@ json = u'''
     }
   ]
 }
-'''
 ```
 
 Which of course means those noise points are gone forever.
 
++++
+
 Now, with `ignore` we can
 
 
-```python
-json = u'''
+```json
 {
   "pipeline":[
     {
@@ -224,10 +223,11 @@ json = u'''
     }
   ]
 }
-'''
 ```
 
 Which allows us to retain noise points without having them impact the ground segmentation step.
+
+---
 
 <h3 align="center">Height Above Ground</h3>
 
