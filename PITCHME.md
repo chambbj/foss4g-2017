@@ -247,11 +247,7 @@ Now, consider the `HeightAboveGround` dimension.
 
 Exclude ground returns (HAG=0, by definition).
 
-```python
-import pandas as pd
-import pdal
-import seaborn as sns
-json = u'''
+```json
 {
   "pipeline":[
     "./data/isprs/samp11-utm.laz",
@@ -266,7 +262,15 @@ json = u'''
       "limits":"Classification[1:1]"
     }
   ]
-}'''
+}
+```
+
++++
+
+```python
+import pandas as pd
+import pdal
+import seaborn as sns
 p = pdal.Pipeline(json)
 p.execute()
 df = pd.DataFrame(p.arrays[0])
