@@ -21,6 +21,8 @@
 
   - The PDAL Python package can be installed via pip.
 
+Plain text
+
   - Once installed, simply
 
 ```python
