@@ -47,6 +47,15 @@
 | pdal/pdal | 1.5 | 3.67GB |
 | pdal/pdal | latest | 3.67GB |
 
++++
+
+  - Prototype Alpine image with ~80% of the plugins
+
+| **Image** | **Tag** | **Size** |
+|---------|-------|--------|
+| pdal/dependencies | alpine | 1.07GB |
+| pdal/pdal | alpine | 365MB |
+
 ---
 
 $$\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}$$
