@@ -21,7 +21,9 @@
 
   - The PDAL Python package can be installed via pip.
 
-    Plain text
+    ```console
+    pip install pdal
+    ```
 
   - Once installed, simply
 
