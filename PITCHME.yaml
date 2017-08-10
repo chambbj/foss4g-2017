@@ -1,1 +1,8 @@
 mathjax : TeX-MML-AM_HTMLorMML-full
+logo : figures/pdal_logo_small.png
+remote-control : true
+theme : sky
+theme-override : mycss.css
+footnote : "@chambbj | @digitalglobe | @pointcloudpipe"
+highlight : agate
+gatoken : UA-270250-7

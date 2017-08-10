@@ -1,0 +1,8 @@
+.reveal pre code {
+  font-size: 0.6em;
+  line-height: 1em;
+}
+
+.reveal table th, .reveal table td {
+  font-size: 70%;
+}
