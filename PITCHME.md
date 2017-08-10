@@ -904,7 +904,7 @@ Is now.
 
 +++
 
-<a href="https://twitter.com/intent/tweet?screen_name=TwitterDev" class="twitter-mention-button" data-show-count="false">Tweet to @TwitterDev</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<a href="https://twitter.com/chambbj" class="twitter-follow-button" data-show-count="false">Follow @chambbj</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script> 
 
 @chambbj, @DigitalGlobe, @RadiantBlueTech, @pointcloudpipe
 
