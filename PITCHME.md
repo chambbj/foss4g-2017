@@ -114,32 +114,9 @@ The remainder of the presentation will leverage our `pdal-notebook` and present 
 
 ---
 
-<h3 align="center">Use the `ndarray`</h3>
+### Use the `ndarray`
 
-While it is possible to work with the `numpy.ndarray` directly, for example printing the first record
-
-```python
-print(arr[0])
-```
-
-    (512743.63, 5403547.33, 308.68, 0, 1, 1, 0, 0, 2, 0.0, 0, 0)
-
-printing the first 10 X values
-
-```python
-print(arr['X'][:10])
-```
-
-    [ 512743.63  512743.62  512743.61  512743.6   512743.6   512741.5   512741.5
-      512741.49  512741.48  512741.47]
-
-or computing the mean of all Z values
-
-```python
-print(arr['Z'].mean())
-```
-
-    356.17143357
++++?gist=e603131cb635f2b82377e95c0d23f7b0
 
 ---
 
