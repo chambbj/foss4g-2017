@@ -357,7 +357,7 @@ kuQvhBAJ6P8HxbTec3YHrFoAAAAASUVORK5CYII=
 
     .dataframe tbody tr th {
         vertical-align: top;
-        font-=size: 20%;
+        font-size: 20%;
     }
 </style>
 <table border="1" class="dataframe">
