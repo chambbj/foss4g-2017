@@ -1,14 +1,13 @@
 ---
 
-<h1 align="center">Point Cloud Filters & Pipelines in PDAL</h1>
-<h2 align="center">FOSS4G 2017, 18 August 2017</h2>
-<br>
-<h3 align="center">*Bradley J Chambers, DigitalGlobe*</h3>
-<img src="./figures/pdal_logo.png" width="10%" align="right">
+### Point Cloud Filters & Pipelines in PDAL
+#### FOSS4G 2017, 18 August 2017
+Bradley J Chambers, DigitalGlobe
 
 ---
 
-<h2 align="center">Overview</h2>
+### Overview
+
 * Python Package
 * Docker Images
 * IPython/Jupyter Examples
@@ -21,13 +20,13 @@
 
 * The PDAL Python [package](https://pypi.python.org/pypi/PDAL) can be installed via [pip](https://pip.pypa.io/en/stable/).
 
-`pip install pdal`
+  `pip install pdal`
 
 * Once installed, simply
 
-```python
-import pdal
-```
+  ```python
+  import pdal
+  ```
 
 ---
 
