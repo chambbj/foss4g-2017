@@ -94,9 +94,6 @@ Bradley J Chambers, DigitalGlobe
 * `pdal/pdal` image has existed for some time
 * Rational for `pdal-notebook` is to layer on all the necessary pieces to be able to use PDAL and the PDAL python package within a Jupyter notebook, with some extra goodies
 
-* Need to finalize `pdal-notebook`. It seems like a better long term solution than the `learning-pdal` solution that I'm using currently.
-* These slides and other notebooks perhaps should make up the `learning-pdal` repo, with `pdal-notebook` standing separately.
-
 ---
 
 ### IPython/Jupyter Examples
@@ -113,37 +110,7 @@ The remainder of the presentation will leverage our `pdal-notebook` and present 
 
 ### Validating & Executing the Pipeline
 
-We can check that we have defined a valid pipeline.
-
-
-```python
-valid = p.validate()
-print('Is pipeline valid? %s' % valid)
-```
-
-    Is pipeline valid? True
-
-
-Next, we execute the pipeline.
-
-
-```python
-count = p.execute()
-print('Pipeline processed %d points.' % count)
-```
-
-    Pipeline processed 38010 points.
-
-
-We see that 1065 points have been processed via the pipeline. These points are accessible as a `numpy.ndarray`. It is possible to have multiple PointViews flowing through the pipeline, in which case, there could be multiple arrays. Here, we access the first (and only) array.
-
-
-```python
-arr = p.arrays[0]
-print('Pipeline contains %d array(s) of type %s.' % (len(p.arrays), type(arr)))
-```
-
-    Pipeline contains 1 array(s) of type <type 'numpy.ndarray'>.
++++?gist=5a305b98ceb5aa7e59b114f7382ae26a
 
 ---
 
