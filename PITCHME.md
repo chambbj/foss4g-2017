@@ -1,18 +1,4 @@
-
-Begin by configuring the Live Reveal slideshow.
-
-
-```python
-from traitlets.config.manager import BaseJSONConfigManager
-path = "/usr/etc/jupyter/nbconfig"
-cm = BaseJSONConfigManager(config_dir=path)
-cm.update('livereveal', {
-    'theme': 'serif',
-    'transition': 'slide',
-    'start_slideshow_at': 'selected',
-    'slideNumber': False,
-});
-```
+---
 
 <h1 align="center">Point Cloud Filters & Pipelines in PDAL</h1>
 <h2 align="center">FOSS4G 2017, 18 August 2017</h2>
@@ -20,12 +6,16 @@ cm.update('livereveal', {
 <h3 align="center">*Bradley J Chambers, DigitalGlobe*</h3>
 <img src="./figures/pdal_logo.png" width="10%" align="right">
 
+---
+
 <h2 align="center">Overview</h2>
 * Python Package
 * Docker Images
 * IPython/Jupyter Examples
 * Status of PCL Filters
 * Filter-only Pipelines
+
+---
 
 <h2 align="center">Python Package</h2>
 
@@ -35,10 +25,11 @@ The PDAL Python [package](https://pypi.python.org/pypi/PDAL) can be installed vi
 
 Once installed, simply
 
-
 ```python
 import pdal
 ```
+
+---
 
 <h2 align="center">Docker Image</h2>
 * Existing PDAL image (`pdal/pdal:latest`) approaches 4 GB
@@ -72,6 +63,8 @@ import pdal
   </tr>
 </table>
 
++++
+
 <h2 align="center">Alpine Docker Image</h2>
 * WIP
 * Prototype Alpine image with ~80% of the plugins is currently under 400 MB
@@ -93,6 +86,8 @@ import pdal
     <td style="text-align:left;">365MB</td>
   </tr>
 </table>
+
+---
 
 <h2 align="center">`pdal-notebook` Docker Image</h2>
 * `pdal/pdal` image has existed for some time
