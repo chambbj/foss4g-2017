@@ -30,13 +30,8 @@ Bradley J Chambers, DigitalGlobe
 
 ---
 
-### Creating a Pipeline
+### Docker Image
 
-+++?gist=1ef09c4a643dad8221452c63b2e55905
-
----
-
-<h2 align="center">Docker Image</h2>
 * Existing PDAL image (`pdal/pdal:latest`) approaches 4 GB
 * Images building plugins on top of the PDAL base image can grow even larger
 
@@ -70,8 +65,8 @@ Bradley J Chambers, DigitalGlobe
 
 +++
 
-<h2 align="center">Alpine Docker Image</h2>
-* WIP
+### Alpine Docker Image
+
 * Prototype Alpine image with ~80% of the plugins is currently under 400 MB
 
 <table style="font-size:100%;">
@@ -92,52 +87,31 @@ Bradley J Chambers, DigitalGlobe
   </tr>
 </table>
 
----
++++
 
-<h2 align="center">`pdal-notebook` Docker Image</h2>
+### `pdal-notebook` Docker Image
+
 * `pdal/pdal` image has existed for some time
 * Rational for `pdal-notebook` is to layer on all the necessary pieces to be able to use PDAL and the PDAL python package within a Jupyter notebook, with some extra goodies
 
 * Need to finalize `pdal-notebook`. It seems like a better long term solution than the `learning-pdal` solution that I'm using currently.
 * These slides and other notebooks perhaps should make up the `learning-pdal` repo, with `pdal-notebook` standing separately.
 
-<h2 align="center">IPython/Jupyter Examples</h2>
+---
+
+### IPython/Jupyter Examples
+
 The remainder of the presentation will leverage our `pdal-notebook` and present examples in the context of the PDAL Python package (though CLI samples will be provided as well).
 
-<h3 align="center">Creating a Pipeline</h3>
+---
 
-Start by importing the PDAL package.
+### Creating a Pipeline
 
++++?gist=1ef09c4a643dad8221452c63b2e55905
 
-```python
-from __future__ import print_function
-```
+---
 
-
-```python
-import pdal
-```
-
-Define the pipeline JSON.
-
-
-```python
-json = u'''
-{
-  "pipeline":[
-    "./data/isprs/samp11-utm.laz"
-  ]
-}'''
-```
-
-This JSON description of the pipeline is passed directly to the `pdal.Pipeline()` constructor.
-
-
-```python
-p = pdal.Pipeline(json)
-```
-
-<h3 align="center">Validating & Executing the Pipeline</h3>
+### Validating & Executing the Pipeline
 
 We can check that we have defined a valid pipeline.
 
