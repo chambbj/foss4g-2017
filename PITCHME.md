@@ -166,11 +166,11 @@ print('Pipeline contains %d array(s) of type %s.' % (len(p.arrays), type(arr)))
 
     Pipeline contains 1 array(s) of type <type 'numpy.ndarray'>.
 
+---
 
 <h3 align="center">Use the `ndarray`</h3>
 
 While it is possible to work with the `numpy.ndarray` directly, for example printing the first record
-
 
 ```python
 print(arr[0])
@@ -178,9 +178,7 @@ print(arr[0])
 
     (512743.63, 5403547.33, 308.68, 0, 1, 1, 0, 0, 2, 0.0, 0, 0)
 
-
 printing the first 10 X values
-
 
 ```python
 print(arr['X'][:10])
@@ -189,9 +187,7 @@ print(arr['X'][:10])
     [ 512743.63  512743.62  512743.61  512743.6   512743.6   512741.5   512741.5
       512741.49  512741.48  512741.47]
 
-
 or computing the mean of all Z values
-
 
 ```python
 print(arr['Z'].mean())
@@ -199,6 +195,7 @@ print(arr['Z'].mean())
 
     356.17143357
 
+---
 
 <h3 align="center">Or Pandas!</h3>
 
@@ -209,6 +206,8 @@ We can also leverage other Python packages like Pandas to read the data.
 import pandas as pd
 samp11 = pd.DataFrame(arr)
 ```
+
++++
 
 <h3 align="center">Print Records</h3>
 
@@ -333,7 +332,7 @@ samp11.head()
 </div>
 
 
-
++++
 
 ```python
 samp11.tail()
@@ -454,7 +453,7 @@ samp11.tail()
 </table>
 </div>
 
-
+---
 
 <h3 align="center">Summarize</h3>
 
@@ -623,7 +622,7 @@ samp11.describe()
 </table>
 </div>
 
-
+---
 
 <h3 align="center">Analyze</h3>
 
@@ -639,6 +638,7 @@ sns.kdeplot(samp11['Z'], cut=0, shade=True, vertical=True);
 
 ![png](point_cloud_filters_and_pipelines_foss4g-2017_files/point_cloud_filters_and_pipelines_foss4g-2017_43_0.png)
 
+---
 
 <h3 align="center">CLI Access</h3>
 
