@@ -229,59 +229,21 @@ Which allows us to retain noise points without having them impact the ground seg
 
 ---
 
-<h3 align="center">Height Above Ground</h3>
+### Height Above Ground
 
 To compute `HeightAboveGround` we will use two PDAL filters, first [SMRF](https://pdal.io/stages/filters.smrf.html) to segment ground and non-ground returns, and [HAG](https://pdal.io/stages/filters.hag.html) to estimate the `HeightAboveGround` using the return information.
 
-
-```python
-json = u'''
-{
-  "pipeline":[
-    "./data/isprs/samp11-utm.laz",
-    {
-      "type":"filters.smrf"
-    },
-    {
-      "type":"filters.hag"
-    }
-  ]
-}'''
-
-p = pdal.Pipeline(json)
-count = p.execute()
-df = pd.DataFrame(p.arrays[0])
-```
-
-Note that this is equivalent to
-
-
-```python
-!pdal translate ./data/isprs/samp11-utm.laz ./data/foo.laz smrf hag
-```
-
 Recall the kernel density of raw elevations...
 
++++?gist=9f34a474e98e4498e5f8ed414a831333
 
-```python
-sns.kdeplot(df['Z'], cut=0, shade=True, vertical=True);
-```
-
-
-![png](point_cloud_filters_and_pipelines_foss4g-2017_files/point_cloud_filters_and_pipelines_foss4g-2017_70_0.png)
-
+---
 
 Now, consider the `HeightAboveGround` dimension.
 
++++?gist=9f34a474e98e4498e5f8ed414a831333
 
-```python
-sns.kdeplot(df['HeightAboveGround'], cut=0, shade=True, vertical=True);
-```
-
-
-![png](point_cloud_filters_and_pipelines_foss4g-2017_files/point_cloud_filters_and_pipelines_foss4g-2017_72_0.png)
-
-
+---
 
 ```python
 json = u'''
