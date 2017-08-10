@@ -231,15 +231,9 @@ Which allows us to retain noise points without having them impact the ground seg
 
 ### Height Above Ground
 
-.reveal .slides {
-    text-align: left;
-}
-.reveal .slides section>* {
-    margin-left: 0;
-    margin-right: 0;
-}
-
+<section class="left-align">
 To compute `HeightAboveGround` we will use two PDAL filters, first [SMRF](https://pdal.io/stages/filters.smrf.html) to segment ground and non-ground returns, and [HAG](https://pdal.io/stages/filters.hag.html) to estimate the `HeightAboveGround` using the return information.
+</section>
 
 Recall the kernel density of raw elevations...
 
