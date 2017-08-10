@@ -251,6 +251,12 @@ Exclude ground returns (HAG=0, by definition).
 
 ---
 
+A small test.
+
+<script src="https://gist.github.com/chambbj/aded19784be1dcddd0a4e1fcd88939d6.js"></script>
+
+---
+
 ```python
 json = u'''
 {
