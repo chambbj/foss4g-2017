@@ -1,3 +1,7 @@
-.gist iframe.render-viewer {
-  height: 800px;
+.reveal .slides {
+    text-align: left;
+}
+.reveal .slides section>* {
+    margin-left: 0;
+    margin-right: 0;
 }
