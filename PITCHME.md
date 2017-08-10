@@ -235,13 +235,13 @@ To compute `HeightAboveGround` we will use two PDAL filters, first [SMRF](https:
 
 Recall the kernel density of raw elevations...
 
-+++?gist=9f34a474e98e4498e5f8ed414a831333
++++?gist=aded19784be1dcddd0a4e1fcd88939d6
 
 ---
 
 Now, consider the `HeightAboveGround` dimension.
 
-+++?gist=9f34a474e98e4498e5f8ed414a831333
++++?gist=50a68491ee0115d825fa72d313e4a7fe
 
 ---
 
