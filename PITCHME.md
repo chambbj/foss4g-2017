@@ -27,9 +27,20 @@
 
   - Once installed, simply
 
-```python
-import pdal
-```
+    ```python
+    import pdal
+    ```
+
+---
+
+Docker Image
+
+  - Existing PDAL image (`pdal/pdal:latest`) approaches 4 GB
+  - Plugins on top of PDAL base image grow even larger
+
+  | *Image* | *Tag* | *Size* |
+  |:--------|:------|:-------|
+  | pdal/pdal | 1.5 | 3.67GB |
 
 ---
 
