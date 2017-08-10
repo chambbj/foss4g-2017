@@ -126,19 +126,9 @@ The remainder of the presentation will leverage our `pdal-notebook` and present 
 
 ---
 
-<h3 align="center">Analyze</h3>
+### Analyze
 
-
-```python
-%matplotlib inline
-import seaborn as sns
-sns.set(color_codes=True)
-sns.set_context("talk")
-sns.kdeplot(samp11['Z'], cut=0, shade=True, vertical=True);
-```
-
-
-![png](point_cloud_filters_and_pipelines_foss4g-2017_files/point_cloud_filters_and_pipelines_foss4g-2017_43_0.png)
++++?gist=9f34a474e98e4498e5f8ed414a831333
 
 ---
 
