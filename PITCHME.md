@@ -504,6 +504,8 @@ vo.describe()
 vo
 ```
 
++++
+
 <h2 align="center">Fun Things</h2>
 
 
@@ -709,7 +711,7 @@ vo
       }
     }
 
-
++++
 
 ```python
 !pdal info ./data/isprs/samp11-utm.laz --boundary
@@ -734,7 +736,7 @@ vo
       "pdal_version": "1.5.0 (git-version: cb82e6)"
     }
 
-
++++
 
 ```python
 !pdal info ./data/isprs/samp11-utm.laz --boundary | jq -r .boundary.boundary
@@ -742,7 +744,7 @@ vo
 
     MULTIPOLYGON (((512735.34793786 5403532.98504758, 512843.01474565 5403547.33000000, 512834.73268351 5403877.26390560, 512718.78381359 5403877.26390560, 512685.65556504 5403848.57400076, 512685.65556504 5403561.67495242, 512735.34793786 5403532.98504758)))
 
-
++++
 
 ```python
 !pdal translate ./data/isprs/CSite1_orig-utm.laz ./data/foo.laz crop --verbose 5 \
@@ -751,6 +753,7 @@ vo
 
     (pdal translate writers.las Debug) Wrote 95798 points to the LAS file
 
++++
 
 <h2 align="center">Status of PCL Filters</h2>
 * Native PDAL variants of PCL Plugin filters
@@ -785,6 +788,7 @@ vo
 * PCL JSON specifcation bumped to v0.2 → easier to embed in PDAL JSON
 * Removed the PCL Visualizers
 
++++
 
 ```python
 import json
@@ -811,7 +815,7 @@ with open('./pclblock.json') as json_data:
       ]
     }
 
-
++++
 
 ```python
 !pdal translate ./data/isprs/samp11-utm.laz ./data/foo.laz --json ./pclblock.json --verbose 5
@@ -832,7 +836,7 @@ with open('./pclblock.json') as json_data:
     (pdal translate writers.las Warning) ./data/foo.laz: Found invalid value of '0' for point's number of returns.
     (pdal translate writers.las Debug) Wrote 16721 points to the LAS file
 
-
++++
 
 ```python
 %matplotlib inline
@@ -865,6 +869,7 @@ before = p.arrays[0]
 after = vg
 ```
 
++++
 
 ```python
 f, (ax1, ax2) = plt.subplots(1, 2, figsize=(40, 15), sharey=True, subplot_kw=dict(aspect='equal'))
@@ -872,9 +877,9 @@ ax1.scatter(before['X'], before['Y'], c=before['Z'], cmap='viridis', s=10);
 ax2.scatter(after['X'], after['Y'], c=after['Z'], cmap='viridis', s=10);
 ```
 
-
 ![png](point_cloud_filters_and_pipelines_foss4g-2017_files/point_cloud_filters_and_pipelines_foss4g-2017_102_0.png)
 
++++
 
 <h2 align="center">Filter-only Pipelines</h2>
 
@@ -884,10 +889,14 @@ We can now do filter-only pipelines. Why is that important? Well, you could alwa
      --readers.las.filename=input.las \
      --writers.las.filename=output.las`
 
++++
+
 Is now.
 
 `pdal translate input.las output.las \
     --json pipeline.json`
+
++++
 
 @chambbj, @DigitalGlobe, @RadiantBlueTech, @pointcloudpipe
 
@@ -895,8 +904,9 @@ Is now.
 * https://www.digitalglobe.com/expertise
 * https://pdal.io
 
-<h2 align="center">Possible comparison to earlier voxel grid</h2>
++++
 
+<h2 align="center">Possible comparison to earlier voxel grid</h2>
 
 ```python
 %matplotlib inline
@@ -933,6 +943,7 @@ before = p.arrays[0]
 after = poisson
 ```
 
++++
 
 ```python
 f, (ax1, ax2) = plt.subplots(1, 2, figsize=(30, 15), sharey=True, subplot_kw=dict(aspect='equal'))
@@ -940,10 +951,9 @@ ax1.scatter(before['X'], before['Y'], c=before['Z'], cmap='viridis', s=10);
 ax2.scatter(after['X'], after['Y'], c=after['Z'], cmap='viridis', s=10);
 ```
 
-
 ![png](point_cloud_filters_and_pipelines_foss4g-2017_files/point_cloud_filters_and_pipelines_foss4g-2017_110_0.png)
 
-
++++
 
 ```python
 f, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(30, 15), sharey=True, subplot_kw=dict(aspect='equal'))
@@ -951,7 +961,6 @@ ax1.scatter(before['X'], before['Y'], c=before['Z'], cmap='viridis', s=10);
 ax2.scatter(poisson['X'], poisson['Y'], c=poisson['Z'], cmap='viridis', s=10);
 ax3.scatter(vg['X'], vg['Y'], c=vg['Z'], cmap='viridis', s=10);
 ```
-
 
 ![png](point_cloud_filters_and_pipelines_foss4g-2017_files/point_cloud_filters_and_pipelines_foss4g-2017_111_0.png)
 
