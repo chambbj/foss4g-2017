@@ -243,21 +243,37 @@ Now, consider the `HeightAboveGround` dimension.
 
 +++?gist=50a68491ee0115d825fa72d313e4a7fe
 
----
++++
 
 Exclude ground returns (HAG=0, by definition).
 
-+++?gist=efa93860aa316f607ea4b3215395f627
+```python
+import pandas as pd
+import pdal
+import seaborn as sns
+json = u'''
+{
+  "pipeline":[
+    "./data/isprs/samp11-utm.laz",
+    {
+      "type":"filters.smrf"
+    },
+    {
+      "type":"filters.hag"
+    },
+    {
+      "type":"filters.range",
+      "limits":"Classification[1:1]"
+    }
+  ]
+}'''
+p = pdal.Pipeline(json)
+p.execute()
+df = pd.DataFrame(p.arrays[0])
+sns.kdeplot(df['HeightAboveGround'], cut=0, shade=True, vertical=True);
+```
 
----
-
-A small test.
-
-<iframe src="https://gist.github.com/chambbj/aded19784be1dcddd0a4e1fcd88939d6.js"></iframe>
-
-+++?gist=a5d9b3f40d13d19276b1b7a31f806393
-
----
++++
 
 ![KDE](figures/sample.png)
 
