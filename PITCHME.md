@@ -245,38 +245,11 @@ Now, consider the `HeightAboveGround` dimension.
 
 ---
 
-```python
-json = u'''
-{
-  "pipeline":[
-    "./data/isprs/samp11-utm.laz",
-    {
-      "type":"filters.smrf"
-    },
-    {
-      "type":"filters.hag"
-    },
-    {
-      "type":"filters.range",
-      "limits":"Classification[1:1]"
-    }
-  ]
-}'''
+Exclude ground returns (HAG=0, by definition).
 
-p = pdal.Pipeline(json)
-count = p.execute()
-df = pd.DataFrame(p.arrays[0])
-```
++++?gist=efa93860aa316f607ea4b3215395f627
 
-
-```python
-sns.kdeplot(df['HeightAboveGround'], cut=0, shade=True, vertical=True);
-```
-
-
-![png](point_cloud_filters_and_pipelines_foss4g-2017_files/point_cloud_filters_and_pipelines_foss4g-2017_74_0.png)
-
-
+---
 
 ```python
 json = u'''
