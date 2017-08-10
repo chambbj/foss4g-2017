@@ -347,6 +347,7 @@ kuQvhBAJ6P8HxbTec3YHrFoAAAAASUVORK5CYII=
 <style>
     .dataframe thead tr:only-child th {
         text-align: right;
+        font-size: 80%;
     }
 
     .dataframe thead th {
