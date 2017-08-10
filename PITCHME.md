@@ -281,10 +281,9 @@ sns.kdeplot(df['HeightAboveGround'], cut=0, shade=True, vertical=True);
 
 ![KDE](figures/sample.png)
 
----
++++
 
-```python
-json = u'''
+```json
 {
   "pipeline":[
     "./data/isprs/samp11-utm.laz",
@@ -306,89 +305,24 @@ json = u'''
       "limits":"Classification[1:1]"
     }
   ]
-}'''
+}
+```
++++
 
+```python
 p = pdal.Pipeline(json)
 count = p.execute()
 df = pd.DataFrame(p.arrays[0])
-```
-
-
-```python
 sns.kdeplot(df['HeightAboveGround'], cut=0, shade=True, vertical=True);
 ```
 
-
 ![png](point_cloud_filters_and_pipelines_foss4g-2017_files/point_cloud_filters_and_pipelines_foss4g-2017_76_0.png)
-
-
 
 ```python
 df[['HeightAboveGround']].describe()
 ```
 
-
-
-
-<div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>HeightAboveGround</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>count</th>
-      <td>15607.000000</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>5.467956</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>5.006438</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>-13.280000</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>2.110000</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>3.870000</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>7.810000</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>63.700000</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
++++
 
 <h3 align="center">Removing Noise</h3>
 
@@ -397,9 +331,13 @@ This tutorial is meant to walk through the use of and theory behind PDAL's `outl
 - Statistical Outlier Filter
 - Radius Outlier Filter
 
++++
+
 <h4 align="center">Statistical Outlier Filter</h4>
 
 The basic idea of a statistical outlier removal has been implemented in both [PCL](http://www.pointclouds.org/documentation/tutorials/statistical_outlier.php#statistical-outlier-removal) and [PDAL](https://www.pdal.io/stages/filters.outlier.html).
+
++++
 
 We begin by computing the mean distance $\mu_i$ to each of the $k$ nearest neighbors for each point.
 
@@ -411,14 +349,17 @@ and standard deviation
 
 $$\sigma = \sqrt{\frac{1}{N-1} \sum_{i=1}^N (\mu_i - \overline{\mu})^2}$$
 
++++
+
 A threshold is then formed by
 
 $$\overline{\mu} + 3\sigma$$
 
 Any point whose mean distance $\mu_i$ exceeds this threshold is then labeled as noise.
 
-Let's begin by iterating through our DataFrame, keeping track of the mean distance to our eight nearest neighbors.
++++
 
+Let's begin by iterating through our DataFrame, keeping track of the mean distance to our eight nearest neighbors.
 
 ```python
 import numpy as np
@@ -428,19 +369,19 @@ for _, point in samp11[['X','Y','Z']].iterrows():
     dists = np.append(dists, dist[1:].mean())
 ```
 
-The KDE plot of the mean distances looks something like this.
++++
 
+The KDE plot of the mean distances looks something like this.
 
 ```python
 sns.kdeplot(dists, cut=0, shade=True);
 ```
 
-
 ![png](point_cloud_filters_and_pipelines_foss4g-2017_files/point_cloud_filters_and_pipelines_foss4g-2017_83_0.png)
-
 
 Now, we compute the threshold as described.
 
++++
 
 ```python
 threshold = dists.mean()+3*dists.std()
@@ -452,18 +393,17 @@ print(noise.size, "points detected with a "
 
     241 points detected with a mean distance exceeding the global threshold of 3.81763516967
 
++++
 
 Now our KDE plot of mean distances looks like this.
-
 
 ```python
 sns.kdeplot(signal, cut=0, shade=True);
 ```
 
-
 ![png](point_cloud_filters_and_pipelines_foss4g-2017_files/point_cloud_filters_and_pipelines_foss4g-2017_87_0.png)
 
-
++++
 
 ```python
 !pdal translate ./data/isprs/samp11-utm.laz ./data/foo.laz assign outlier \
@@ -477,10 +417,9 @@ sns.kdeplot(signal, cut=0, shade=True);
     (pdal translate filters.outlier Debug) 		Labeled 241 outliers as noise!
     (pdal translate writers.las Debug) Wrote 38010 points to the LAS file
 
++++
 
-
-```python
-json = u'''
+```json
 {
   "pipeline":[
     "./data/isprs/samp11-utm.laz",
@@ -495,8 +434,12 @@ json = u'''
       "mean_k": 8
     }
   ]
-}'''
+}
+```
 
++++
+
+```python
 p = pdal.Pipeline(json)
 p.loglevel = 8
 p.execute()
@@ -505,8 +448,7 @@ print(p.log)
 
     (pypipeline filters.outlier Debug) 		Labeled 241 outliers as noise!
     
-
-
++++
 
 ```python
 json = u'''
@@ -558,238 +500,9 @@ vo.describe()
 ```
 
 
-
-
-<div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>X</th>
-      <th>Y</th>
-      <th>Z</th>
-      <th>HeightAboveGround</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>count</th>
-      <td>15.000000</td>
-      <td>1.500000e+01</td>
-      <td>15.000000</td>
-      <td>15.000000</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>512799.513333</td>
-      <td>5.403632e+06</td>
-      <td>352.667333</td>
-      <td>38.212000</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>23.111817</td>
-      <td>4.812817e+01</td>
-      <td>22.661835</td>
-      <td>16.576486</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>512730.790000</td>
-      <td>5.403557e+06</td>
-      <td>317.300000</td>
-      <td>20.050000</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>512795.435000</td>
-      <td>5.403623e+06</td>
-      <td>333.970000</td>
-      <td>21.895000</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>512798.290000</td>
-      <td>5.403624e+06</td>
-      <td>354.110000</td>
-      <td>38.450000</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>512813.460000</td>
-      <td>5.403626e+06</td>
-      <td>367.255000</td>
-      <td>54.255000</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>512831.280000</td>
-      <td>5.403739e+06</td>
-      <td>401.930000</td>
-      <td>63.700000</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-
 ```python
 vo
 ```
-
-
-
-
-<div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>X</th>
-      <th>Y</th>
-      <th>Z</th>
-      <th>HeightAboveGround</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>512794.22</td>
-      <td>5403576.38</td>
-      <td>317.30</td>
-      <td>21.99</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>512827.97</td>
-      <td>5403630.85</td>
-      <td>329.92</td>
-      <td>24.45</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>512786.89</td>
-      <td>5403626.56</td>
-      <td>366.60</td>
-      <td>58.15</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>512811.06</td>
-      <td>5403612.84</td>
-      <td>326.88</td>
-      <td>20.26</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>512792.11</td>
-      <td>5403626.03</td>
-      <td>368.89</td>
-      <td>59.78</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>512797.05</td>
-      <td>5403624.26</td>
-      <td>338.02</td>
-      <td>28.91</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>512796.65</td>
-      <td>5403624.90</td>
-      <td>350.39</td>
-      <td>41.28</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>512798.29</td>
-      <td>5403625.87</td>
-      <td>361.53</td>
-      <td>52.31</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>512797.34</td>
-      <td>5403623.67</td>
-      <td>347.56</td>
-      <td>38.45</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>512798.47</td>
-      <td>5403623.67</td>
-      <td>354.11</td>
-      <td>44.89</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>512798.73</td>
-      <td>5403624.20</td>
-      <td>365.42</td>
-      <td>56.20</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>512831.28</td>
-      <td>5403557.39</td>
-      <td>323.52</td>
-      <td>20.96</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>512815.86</td>
-      <td>5403621.44</td>
-      <td>370.03</td>
-      <td>63.70</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>512815.99</td>
-      <td>5403739.10</td>
-      <td>367.91</td>
-      <td>20.05</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>512730.79</td>
-      <td>5403738.80</td>
-      <td>401.93</td>
-      <td>21.80</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
 
 <h2 align="center">Fun Things</h2>
 
