@@ -55,18 +55,11 @@ Bradley J Chambers, DigitalGlobe
 | pdal/dependencies | alpine | 1.07GB |
 | pdal/pdal | alpine | 365MB |
 
-+++
-
-### `pdal-notebook` Docker Image
-
-* `pdal/pdal` image has existed for some time
-* Rational for `pdal-notebook` is to layer on all the necessary pieces to be able to use PDAL and the PDAL python package within a Jupyter notebook, with some extra goodies
-
 ---
 
-### IPython/Jupyter Examples
+### Python Examples
 
-The remainder of the presentation will leverage our `pdal-notebook` and present examples in the context of the PDAL Python package (though CLI samples will be provided as well).
+The remainder of the presentation will present examples in the context of the PDAL Python package (though CLI samples will be provided as well).
 
 +++
 
@@ -89,7 +82,21 @@ p = pdal.Pipeline(json)
 
 ### Validating & Executing the Pipeline
 
-+++?gist=5a305b98ceb5aa7e59b114f7382ae26a
+```python
+print('Is pipeline valid? %s' % p.validate())
+```
+
+```
+Is pipeline valid? True
+```
+
+```python
+print('Pipeline processed %d points.' % p.execute())
+```
+
+```
+Pipeline processed 38010 points.
+```
 
 +++
 
