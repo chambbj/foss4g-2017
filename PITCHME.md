@@ -80,7 +80,7 @@ Bradley J Chambers, DigitalGlobe
 
 ### Alpine Docker Image
 
-* Prototype Alpine image with ~80% of the plugins is currently under 400 MB
+* Prototype Alpine image with ~80% of the plugins
 
 <table style="font-size:100%;">
   <tr>
@@ -99,6 +99,13 @@ Bradley J Chambers, DigitalGlobe
     <td style="text-align:left;">365MB</td>
   </tr>
 </table>
+
++++
+
+| **Image** | **Tag** | **Size** |
+|---------|-------|--------|
+| pdal/dependencies | alpine | 1.07GB |
+| pdal/pdal | alpine | 365MB |
 
 +++
 
