@@ -125,7 +125,31 @@ Pipeline contains 1 array(s).
 
 ### Or Pandas!
 
-+++?gist=c57ae3d82026dad87009a8e6c7e4ae0f
+```python
+>>> import pandas as pd
+>>> samp11 = pd.DataFrame(arr)
+>>> samp11.head()
+           X           Y       Z  Intensity  ReturnNumber  NumberOfReturns  \
+0  512743.63  5403547.33  308.68          0             1                1
+1  512743.62  5403547.33  308.70          0             1                1
+2  512743.61  5403547.33  308.72          0             1                1
+3  512743.60  5403547.34  308.68          0             1                1
+4  512743.60  5403547.33  308.73          0             1                1
+
+   ScanDirectionFlag  EdgeOfFlightLine  Classification  ScanAngleRank  \
+0                  0                 0               2            0.0
+1                  0                 0               2            0.0
+2                  0                 0               2            0.0
+3                  0                 0               2            0.0
+4                  0                 0               2            0.0
+
+   UserData  PointSourceId
+0         0              0
+1         0              0
+2         0              0
+3         0              0
+4         0              0
+```
 
 +++
 
