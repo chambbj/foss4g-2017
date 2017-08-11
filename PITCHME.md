@@ -93,17 +93,31 @@ Is pipeline valid? True
 ```python
 print('Pipeline processed %d points.' % p.execute())
 ```
-|
 
 ```console
 Pipeline processed 38010 points.
+```
+
+```python
+arr = p.arrays[0]
+print('Pipeline contains %d array(s) of type %s.' % (len(p.arrays), type(arr)))
+```
+
+```console
+Pipeline contains 1 array(s) of type <type 'numpy.ndarray'>.
 ```
 
 +++
 
 ### Use the `ndarray`
 
-+++?gist=e603131cb635f2b82377e95c0d23f7b0
+```python
+print(arr[0])
+```
+
+```console
+(512743.63, 5403547.33, 308.68, 0, 1, 1, 0, 0, 2, 0.0, 0, 0)
+```
 
 +++
 
