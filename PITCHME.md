@@ -294,7 +294,7 @@ df[['HeightAboveGround']].describe()
 
 +++
 
-<h3 align="center">Removing Noise</h3>
+Removing Noise
 
 This tutorial is meant to walk through the use of and theory behind PDAL's `outlier` filter.
 
@@ -303,7 +303,7 @@ This tutorial is meant to walk through the use of and theory behind PDAL's `outl
 
 +++
 
-<h4 align="center">Statistical Outlier Filter</h4>
+### Statistical Outlier Filter
 
 The basic idea of a statistical outlier removal has been implemented in both [PCL](http://www.pointclouds.org/documentation/tutorials/statistical_outlier.php#statistical-outlier-removal) and [PDAL](https://www.pdal.io/stages/filters.outlier.html).
 
@@ -476,8 +476,7 @@ vo
 
 +++
 
-<h2 align="center">Fun Things</h2>
-
+### Fun Things
 
 ```python
 !pdal info ./data/isprs/samp11-utm.laz
@@ -830,11 +829,13 @@ ax1.scatter(before['X'], before['Y'], c=before['Z'], cmap='viridis', s=10);
 ax2.scatter(after['X'], after['Y'], c=after['Z'], cmap='viridis', s=10);
 ```
 
++++
+
 ![png](point_cloud_filters_and_pipelines_foss4g-2017_files/point_cloud_filters_and_pipelines_foss4g-2017_102_0.png)
 
 +++
 
-<h2 align="center">Filter-only Pipelines</h2>
+### Filter-only Pipelines
 
 <div align="left">
 We can now do filter-only pipelines. Why is that important? Well, you could always create the pipeline, and do substitution:
@@ -857,17 +858,7 @@ pdal translate input.las output.las \
 
 +++
 
-<a href="https://twitter.com/chambbj" class="twitter-follow-button" data-show-count="false">Follow @chambbj</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script> 
-
-@chambbj, @DigitalGlobe, @RadiantBlueTech, @pointcloudpipe
-
-* https://chambbj.github.io
-* https://www.digitalglobe.com/expertise
-* https://pdal.io
-
-+++
-
-<h2 align="center">Possible comparison to earlier voxel grid</h2>
+### Possible comparison to earlier voxel grid
 
 ```python
 %matplotlib inline
@@ -912,6 +903,8 @@ ax1.scatter(before['X'], before['Y'], c=before['Z'], cmap='viridis', s=10);
 ax2.scatter(after['X'], after['Y'], c=after['Z'], cmap='viridis', s=10);
 ```
 
++++
+
 ![png](point_cloud_filters_and_pipelines_foss4g-2017_files/point_cloud_filters_and_pipelines_foss4g-2017_110_0.png)
 
 +++
@@ -922,6 +915,8 @@ ax1.scatter(before['X'], before['Y'], c=before['Z'], cmap='viridis', s=10);
 ax2.scatter(poisson['X'], poisson['Y'], c=poisson['Z'], cmap='viridis', s=10);
 ax3.scatter(vg['X'], vg['Y'], c=vg['Z'], cmap='viridis', s=10);
 ```
+
++++
 
 ![png](point_cloud_filters_and_pipelines_foss4g-2017_files/point_cloud_filters_and_pipelines_foss4g-2017_111_0.png)
 
