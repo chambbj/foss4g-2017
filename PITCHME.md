@@ -94,7 +94,7 @@ Is pipeline valid? True
 print('Pipeline processed %d points.' % p.execute())
 ```
 
-```console
+```bash
 Pipeline processed 38010 points.
 ```
 
@@ -103,7 +103,7 @@ arr = p.arrays[0]
 print('Pipeline contains %d array(s) of type %s.' % (len(p.arrays), type(arr)))
 ```
 
-```console
+```shell
 Pipeline contains 1 array(s) of type <type 'numpy.ndarray'>.
 ```
 
@@ -119,7 +119,7 @@ print(arr['X'][:10])
   512741.49  512741.48  512741.47]
 ```
 @[1-2]
-@[3-4]
+@[3-5]
 
 +++
 
