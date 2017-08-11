@@ -72,7 +72,22 @@ The remainder of the presentation will leverage our `pdal-notebook` and present 
 
 ### Creating a Pipeline
 
-+++?gist=1ef09c4a643dad8221452c63b2e55905
+* Define the pipeline JSON
+
+  ```python
+  json = u'''
+  {
+    "pipeline":[
+      "./data/isprs/samp11-utm.laz"
+    ]
+  }'''
+  ```
+
+* Create the pipeline
+
+  ```python
+  p = pdal.Pipeline(json)
+  ```
 
 +++
 
