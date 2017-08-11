@@ -114,12 +114,18 @@ Pipeline contains 1 array(s) of type <type 'numpy.ndarray'>.
 ```python
 print(arr[0])
 (512743.63, 5403547.33, 308.68, 0, 1, 1, 0, 0, 2, 0.0, 0, 0)
+
+
 print(arr['X'][:10])
 [ 512743.63  512743.62  512743.61  512743.6   512743.6   512741.5   512741.5
   512741.49  512741.48  512741.47]
+
+print(arr['Z'].mean())
+356.17143357
 ```
-@[1-2]
-@[3-5](Try annotation)
+@[1-2](Print the first point record)
+@[5-7](Print the first 10 X values)
+@[9-10](Print the mean of all Z values)
 
 +++
 
