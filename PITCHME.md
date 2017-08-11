@@ -111,7 +111,7 @@ Pipeline contains 1 array(s) of type <type 'numpy.ndarray'>.
 
 ### Use the `ndarray`
 
-```shell
+```bash
 print(arr[0])
 (512743.63, 5403547.33, 308.68, 0, 1, 1, 0, 0, 2, 0.0, 0, 0)
 
