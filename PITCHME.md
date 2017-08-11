@@ -127,63 +127,29 @@ Pipeline contains 1 array(s).
 
 ```python
 >>> import pandas as pd
->>> samp11 = pd.DataFrame(arr)
+>>> samp11 = pd.DataFrame(arr, columns=['X','Y','Z'])
 >>> samp11.head()
-           X           Y       Z  Intensity  ReturnNumber  NumberOfReturns  \
-0  512743.63  5403547.33  308.68          0             1                1
-1  512743.62  5403547.33  308.70          0             1                1
-2  512743.61  5403547.33  308.72          0             1                1
-3  512743.60  5403547.34  308.68          0             1                1
-4  512743.60  5403547.33  308.73          0             1                1
-
-   ScanDirectionFlag  EdgeOfFlightLine  Classification  ScanAngleRank  \
-0                  0                 0               2            0.0
-1                  0                 0               2            0.0
-2                  0                 0               2            0.0
-3                  0                 0               2            0.0
-4                  0                 0               2            0.0
-
-   UserData  PointSourceId
-0         0              0
-1         0              0
-2         0              0
-3         0              0
-4         0              0
+           X           Y       Z
+0  512743.63  5403547.33  308.68
+1  512743.62  5403547.33  308.70
+2  512743.61  5403547.33  308.72
+3  512743.60  5403547.34  308.68
+4  512743.60  5403547.33  308.73
 ```
 
 +++
 
 ```python
 >>> samp11.describe()
-                   X             Y             Z     Intensity  ReturnNumber  \
-count   38010.000000  3.801000e+04  38010.000000  38010.000000       38010.0
-mean   512767.010570  5.403708e+06    356.171434      0.426835           1.0
-std        38.570375  8.587360e+01     29.212680      0.494624           0.0
-min    512700.870000  5.403547e+06    295.250000      0.000000           1.0
-25%    512733.530000  5.403645e+06    329.060000      0.000000           1.0
-50%    512766.940000  5.403705e+06    356.865000      0.000000           1.0
-75%    512799.900000  5.403790e+06    385.860000      1.000000           1.0
-max    512834.760000  5.403850e+06    404.080000      1.000000           1.0
-
-       NumberOfReturns  ScanDirectionFlag  EdgeOfFlightLine  Classification  \
-count          38010.0            38010.0           38010.0    38010.000000
-mean               1.0                0.0               0.0        1.146330
-std                0.0                0.0               0.0        0.989249
-min                1.0                0.0               0.0        0.000000
-25%                1.0                0.0               0.0        0.000000
-50%                1.0                0.0               0.0        2.000000
-75%                1.0                0.0               0.0        2.000000
-max                1.0                0.0               0.0        2.000000
-
-       ScanAngleRank  UserData  PointSourceId
-count        38010.0   38010.0        38010.0
-mean             0.0       0.0            0.0
-std              0.0       0.0            0.0
-min              0.0       0.0            0.0
-25%              0.0       0.0            0.0
-50%              0.0       0.0            0.0
-75%              0.0       0.0            0.0
-max              0.0       0.0            0.0
+                   X             Y             Z
+count   38010.000000  3.801000e+04  38010.000000
+mean   512767.010570  5.403708e+06    356.171434
+std        38.570375  8.587360e+01     29.212680
+min    512700.870000  5.403547e+06    295.250000
+25%    512733.530000  5.403645e+06    329.060000
+50%    512766.940000  5.403705e+06    356.865000
+75%    512799.900000  5.403790e+06    385.860000
+max    512834.760000  5.403850e+06    404.080000
 ```
 
 +++
@@ -202,7 +168,7 @@ max              0.0       0.0            0.0
 ### Searching Near a Point
 
 ```python
->>> med = samp11[['X','Y','Z']].median()
+>>> med = samp11.median()
 >>> print(med)
 X     512766.940
 Y    5403705.460
@@ -211,31 +177,21 @@ dtype: float64
 
 
 >>> from scipy import spatial
->>> tree = spatial.cKDTree(samp11[['X','Y','Z']])
+>>> tree = spatial.cKDTree(samp11)
 >>> dists, idx = tree.query(med, k=3)
 >>> print(dists)
 [ 0.6213091   1.37645378  1.51757207]
 
 
 >>> samp11.iloc[idx]
-               X           Y       Z  Intensity  ReturnNumber  \
-31897  512767.16  5403706.02  357.02          1             1
-31881  512767.93  5403706.29  356.39          1             1
-31972  512765.75  5403706.19  356.27          1             1
-
-       NumberOfReturns  ScanDirectionFlag  EdgeOfFlightLine  Classification  \
-31897                1                  0                 0               0
-31881                1                  0                 0               0
-31972                1                  0                 0               0
-
-       ScanAngleRank  UserData  PointSourceId
-31897            0.0         0              0
-31881            0.0         0              0
-31972            0.0         0              0
+               X           Y       Z
+31897  512767.16  5403706.02  357.02
+31881  512767.93  5403706.29  356.39
+31972  512765.75  5403706.19  356.27
 ```
 @[1-6](Find the median point)
 @[9-13](Print the distance to the three nearest neighbors)
-@[16-30](Print the point records of the three nearest neighbors)
+@[16-20](Print the point records of the three nearest neighbors)
 
 +++
 
