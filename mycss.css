@@ -2,6 +2,6 @@
   font-size: 0.8em;
 }
 
-table tr th, table tr td {
+table thead tr th, table tbody tr td {
   font-size: 80%;
 }
