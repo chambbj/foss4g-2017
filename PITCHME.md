@@ -109,8 +109,6 @@ p = pdal.Pipeline(json)
 
 ```python
 import seaborn as sns
-sns.set(color_codes=True)
-sns.set_context("talk")
 sns.kdeplot(samp11['Z'], cut=0, shade=True, vertical=True);
 ```
 
@@ -250,16 +248,11 @@ Now, consider the `HeightAboveGround` dimension.
 +++
 
 ```python
-import pandas as pd
-import pdal
-import seaborn as sns
 p = pdal.Pipeline(json)
 p.execute()
 df = pd.DataFrame(p.arrays[0])
 sns.kdeplot(df['HeightAboveGround'], cut=0, shade=True, vertical=True);
 ```
-
-+++
 
 ![KDE HAG](figures/initial-kde-hag.png)
 
@@ -288,16 +281,11 @@ Exclude ground returns (HAG=0, by definition).
 +++
 
 ```python
-import pandas as pd
-import pdal
-import seaborn as sns
 p = pdal.Pipeline(json)
 p.execute()
 df = pd.DataFrame(p.arrays[0])
 sns.kdeplot(df['HeightAboveGround'], cut=0, shade=True, vertical=True);
 ```
-
-+++
 
 ![KDE](figures/nonground-kde-hag.png)
 
