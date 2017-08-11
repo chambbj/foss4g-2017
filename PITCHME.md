@@ -191,8 +191,8 @@ max              0.0       0.0            0.0
 ### Analyze
 
 ```python
-import seaborn as sns
-sns.kdeplot(samp11['Z'], cut=0, shade=True, vertical=True);
+>>> import seaborn as sns
+>>> sns.kdeplot(samp11['Z'], cut=0, shade=True, vertical=True);
 ```
 
 ![Z KDE](figures/kde-z.png)
@@ -201,7 +201,41 @@ sns.kdeplot(samp11['Z'], cut=0, shade=True, vertical=True);
 
 ### Searching Near a Point
 
-+++?gist=d2b38485dfc4ba3e8463ffc894408838
+```python
+>>> med = samp11[['X','Y','Z']].median()
+>>> print(med)
+X     512766.940
+Y    5403705.460
+Z        356.865
+dtype: float64
+
+
+>>> from scipy import spatial
+>>> tree = spatial.cKDTree(samp11[['X','Y','Z']])
+>>> dists, idx = tree.query(med, k=3)
+>>> print(dists)
+[ 0.6213091   1.37645378  1.51757207]
+
+
+>>> samp11.iloc[idx]
+               X           Y       Z  Intensity  ReturnNumber  \
+31897  512767.16  5403706.02  357.02          1             1
+31881  512767.93  5403706.29  356.39          1             1
+31972  512765.75  5403706.19  356.27          1             1
+
+       NumberOfReturns  ScanDirectionFlag  EdgeOfFlightLine  Classification  \
+31897                1                  0                 0               0
+31881                1                  0                 0               0
+31972                1                  0                 0               0
+
+       ScanAngleRank  UserData  PointSourceId
+31897            0.0         0              0
+31881            0.0         0              0
+31972            0.0         0              0
+```
+@[1-6](Find the median point)
+@[9-13](Print the distance to the three nearest neighbors)
+@[16-30](Print the point records of the three nearest neighbors)
 
 +++
 
