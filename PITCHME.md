@@ -37,36 +37,6 @@ Bradley J Chambers, DigitalGlobe
 * Existing PDAL image (`pdal/pdal:latest`) approaches 4 GB
 * Images building plugins on top of the PDAL base image can grow even larger
 
-<table style="font-size:80%;">
-  <tr>
-    <th style="text-align:left;">Image</th>
-    <th style="text-align:left;">Tag</th>
-    <th style="text-align:left;">Size</th>
-  </tr>
-  <tr>
-    <td style="text-align:left;">pdal/dependencies</td>
-    <td style="text-align:left;">1.5</td>
-    <td style="text-align:left;">3.1GB</td>
-  </tr>
-  <tr>
-    <td style="text-align:left;">pdal/dependencies</td>
-    <td style="text-align:left;">latest</td>
-    <td style="text-align:left;">3.31GB</td>
-  </tr>
-  <tr>
-    <td style="text-align:left;">pdal/pdal</td>
-    <td style="text-align:left;">1.5</td>
-    <td style="text-align:left;">3.67GB</td>
-  </tr>
-  <tr>
-    <td style="text-align:left;">pdal/pdal</td>
-    <td style="text-align:left;">latest</td>
-    <td style="text-align:left;">3.67GB</td>
-  </tr>
-</table>
-
-+++
-
 | **Image** | **Tag** | **Size** |
 |---------|-------|--------|
 | pdal/dependencies | 1.5 | 3.1GB |
@@ -79,26 +49,6 @@ Bradley J Chambers, DigitalGlobe
 ### Alpine Docker Image
 
 * Prototype Alpine image with ~80% of the plugins
-
-<table style="font-size:80%;">
-  <tr>
-    <th style="text-align:left;">Image</th>
-    <th style="text-align:left;">Tag</th>
-    <th style="text-align:left;">Size</th>
-  </tr>
-  <tr>
-    <td style="text-align:left;">pdal/dependencies</td>
-    <td style="text-align:left;">alpine</td>
-    <td style="text-align:left;">1.07GB</td>
-  </tr>
-  <tr>
-    <td style="text-align:left;">pdal/pdal</td>
-    <td style="text-align:left;">alpine</td>
-    <td style="text-align:left;">365MB</td>
-  </tr>
-</table>
-
-+++
 
 | **Image** | **Tag** | **Size** |
 |---------|-------|--------|
@@ -778,6 +728,10 @@ vo
 ### Status of PCL Filters
 
 * Native PDAL variants of PCL Plugin filters
+* PCL JSON specifcation bumped to v0.2 → easier to embed in PDAL JSON
+* Removed the PCL Visualizers
+
++++
 
 <table>
   <tr>
@@ -806,8 +760,15 @@ vo
   </tr>
 </table>
 
-* PCL JSON specifcation bumped to v0.2 → easier to embed in PDAL JSON
-* Removed the PCL Visualizers
++++
+
+| **Old** | **New** |
+|---------|---------|
+| `filters.ground` | `filters.pmf` |
+| `filters.radiusoutlier` | `filters.outlier` |
+| `filters.statisticaloutlier` | `filters.outlier` |
+| `filters.height` | `filters.hag` |
+| `filters.dartsample` | `filters.sample` |
 
 +++
 
