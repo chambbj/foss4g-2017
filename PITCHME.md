@@ -775,10 +775,11 @@ vo
 
 +++
 
-<h2 align="center">Status of PCL Filters</h2>
+### Status of PCL Filters
+
 * Native PDAL variants of PCL Plugin filters
 
-<table style="font-size:100%;">
+<table>
   <tr>
     <th style="text-align:left;">Old (PCL)</th>
     <th style="text-align:left;">New (PDAL)</th>
