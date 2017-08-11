@@ -72,22 +72,18 @@ The remainder of the presentation will leverage our `pdal-notebook` and present 
 
 ### Creating a Pipeline
 
-* Define the pipeline JSON
+```python
+// Define the pipeline JSON
+json = u'''
+{
+  "pipeline":[
+    "./data/isprs/samp11-utm.laz"
+  ]
+}'''
 
-  ```python
-  json = u'''
-  {
-    "pipeline":[
-      "./data/isprs/samp11-utm.laz"
-    ]
-  }'''
-  ```
-
-* Create the pipeline
-
-  ```python
-  p = pdal.Pipeline(json)
-  ```
+// Create the pipeline
+p = pdal.Pipeline(json)
+```
 
 +++
 
