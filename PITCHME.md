@@ -103,8 +103,6 @@ sns.set_context("talk")
 sns.kdeplot(samp11['Z'], cut=0, shade=True, vertical=True);
 ```
 
-+++
-
 ![Z KDE](figures/kde-z.png)
 
 +++
