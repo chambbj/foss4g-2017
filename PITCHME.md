@@ -88,15 +88,16 @@ print('Is pipeline valid? %s' % p.validate())
 
 ```console
 Is pipeline valid? True
-``` |
+```
 
 ```python
 print('Pipeline processed %d points.' % p.execute())
 ```
+|
 
 ```console
 Pipeline processed 38010 points.
-``` |
+```
 
 +++
 
