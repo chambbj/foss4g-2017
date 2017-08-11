@@ -83,16 +83,16 @@ p = pdal.Pipeline(json)
 ### Validating & Executing the Pipeline
 
 ```bash
-print('Is pipeline valid? %s' % p.validate())
+>>> print('Is pipeline valid? %s' % p.validate())
 Is pipeline valid? True
 
 
-print('Pipeline processed %d points.' % p.execute())
+>>> print('Pipeline processed %d points.' % p.execute())
 Pipeline processed 38010 points.
 
 
-arr = p.arrays[0]
-print('Pipeline contains %d array(s).' % (len(p.arrays)))
+>>> arr = p.arrays[0]
+>>> print('Pipeline contains %d array(s).' % (len(p.arrays)))
 Pipeline contains 1 array(s).
 ```
 @[1-2](Check for a valid pipeline)
