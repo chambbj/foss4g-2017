@@ -86,13 +86,15 @@ p = pdal.Pipeline(json)
 print('Is pipeline valid? %s' % p.validate())
 ```
 
-    Is pipeline valid? True
+`Is pipeline valid? True`
 
 ```python
 print('Pipeline processed %d points.' % p.execute())
 ```
 
-    Pipeline processed 38010 points.
+```console
+Pipeline processed 38010 points.
+```
 
 +++
 
