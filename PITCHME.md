@@ -20,7 +20,9 @@ Bradley J Chambers, DigitalGlobe
 
 * The PDAL Python [package](https://pypi.python.org/pypi/PDAL) can be installed via [pip](https://pip.pypa.io/en/stable/).
 
-  `pip install pdal`
+  ```
+  pip install pdal
+  ```
 
 * Once installed, simply
 
