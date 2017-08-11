@@ -177,6 +177,8 @@ and `filters.assign`.
 
 Two of PDAL's ground segmentation filters, `filters.pmf` and `filters.smrf`, can now specify a `DimRange` via the `ignore` parameter to specify points that should be ignored during processing.
 
++++
+
 A common use case for this is to ignore points that have been previously marked as noise. In prior versions of PDAL, we had to filter noise out completely prior to ground segmentation.
 
 ```json
@@ -223,8 +225,6 @@ To compute `HeightAboveGround` we will use two PDAL filters, first [SMRF](https:
 
 Recall the kernel density of raw elevations...
 
-+++?gist=aded19784be1dcddd0a4e1fcd88939d6
-
 +++
 
 ![KDE Z](figures/kde-z.png)
@@ -233,7 +233,27 @@ Recall the kernel density of raw elevations...
 
 Now, consider the `HeightAboveGround` dimension.
 
-+++?gist=50a68491ee0115d825fa72d313e4a7fe
+```python
+import pandas as pd
+import pdal
+import seaborn as sns
+json = u'''
+{
+  "pipeline":[
+    "./data/isprs/samp11-utm.laz",
+    {
+      "type":"filters.smrf"
+    },
+    {
+      "type":"filters.hag"
+    }
+  ]
+}'''
+p = pdal.Pipeline(json)
+p.execute()
+df = pd.DataFrame(p.arrays[0])
+sns.kdeplot(df['HeightAboveGround'], cut=0, shade=True, vertical=True);
+```
 
 +++
 
