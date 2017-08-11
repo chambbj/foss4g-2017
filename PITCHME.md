@@ -100,6 +100,10 @@ The remainder of the presentation will leverage our `pdal-notebook` and present 
 
 +++
 
+![Z KDE](figures/kde-z.png)
+
++++
+
 ### Searching Near a Point
 
 +++?gist=d2b38485dfc4ba3e8463ffc894408838
@@ -209,9 +213,17 @@ Recall the kernel density of raw elevations...
 
 +++
 
+![KDE Z](figures/kde-z.png)
+
++++
+
 Now, consider the `HeightAboveGround` dimension.
 
 +++?gist=50a68491ee0115d825fa72d313e4a7fe
+
++++
+
+![KDE HAG](figures/initial-kde-hag.png)
 
 +++
 
@@ -249,7 +261,7 @@ sns.kdeplot(df['HeightAboveGround'], cut=0, shade=True, vertical=True);
 
 +++
 
-![KDE](figures/sample.png)
+![KDE](figures/nonground-kde-hag.png)
 
 +++
 
@@ -294,7 +306,7 @@ df[['HeightAboveGround']].describe()
 
 +++
 
-Removing Noise
+### Removing Noise
 
 This tutorial is meant to walk through the use of and theory behind PDAL's `outlier` filter.
 
