@@ -154,6 +154,7 @@ Pipeline contains 1 array(s).
 +++
 
 ```python
+>>> samp11.describe()
                    X             Y             Z     Intensity  ReturnNumber  \
 count   38010.000000  3.801000e+04  38010.000000  38010.000000       38010.0
 mean   512767.010570  5.403708e+06    356.171434      0.426835           1.0
