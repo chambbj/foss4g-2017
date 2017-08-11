@@ -82,30 +82,22 @@ p = pdal.Pipeline(json)
 
 ### Validating & Executing the Pipeline
 
-```python
-print('Is pipeline valid? %s' % p.validate())
-```
-
-```console
-Is pipeline valid? True
-```
-
-```python
-print('Pipeline processed %d points.' % p.execute())
-```
-
 ```bash
+print('Is pipeline valid? %s' % p.validate())
+Is pipeline valid? True
+
+
+print('Pipeline processed %d points.' % p.execute())
 Pipeline processed 38010 points.
-```
 
-```python
+
 arr = p.arrays[0]
-print('Pipeline contains %d array(s) of type %s.' % (len(p.arrays), type(arr)))
+print('Pipeline contains %d array(s).' % (len(p.arrays)))
+Pipeline contains 1 array(s).
 ```
-
-```shell
-Pipeline contains 1 array(s) of type <type 'numpy.ndarray'>.
-```
+@[1-2](Check for a valid pipeline)
+@[5-6](Execute the pipeline)
+@[9-11](Check how many `ndarrays` were returned)
 
 +++
 
@@ -120,12 +112,13 @@ print(arr['X'][:10])
 [ 512743.63  512743.62  512743.61  512743.6   512743.6   512741.5   512741.5
   512741.49  512741.48  512741.47]
 
+
 print(arr['Z'].mean())
 356.17143357
 ```
 @[1-2](Print the first point record)
 @[5-7](Print the first 10 X values)
-@[9-10](Print the mean of all Z values)
+@[10-11](Print the mean of all Z values)
 
 +++
 
