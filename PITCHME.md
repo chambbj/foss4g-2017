@@ -733,37 +733,8 @@ vo
 
 +++
 
-<table>
-  <tr>
-    <th style="text-align:left;">Old (PCL)</th>
-    <th style="text-align:left;">New (PDAL)</th>
-  </tr>
-  <tr>
-    <td style="text-align:left;">`filters.ground`</td>
-    <td style="text-align:left;">`filters.pmf`</td>
-  </tr>
-  <tr>
-    <td style="text-align:left;">`filters.radiusoutlier`</td>
-    <td style="text-align:left;">`filters.outlier`</td>
-  </tr>
-  <tr>
-    <td style="text-align:left;">`filters.statisticaloutlier`</td>
-    <td style="text-align:left;">`filters.outlier`</td>
-  </tr>
-  <tr>
-    <td style="text-align:left;">`filters.height`</td>
-    <td style="text-align:left;">`filters.hag`</td>
-  </tr>
-  <tr>
-    <td style="text-align:left;">`filters.dartsample`</td>
-    <td style="text-align:left;">`filters.sample`</td>
-  </tr>
-</table>
-
-+++
-
-| **Old** | **New** |
-|---------|---------|
+| **Old (PCL)** | **New (PDAL)** |
+|---------------|----------------|
 | `filters.ground` | `filters.pmf` |
 | `filters.radiusoutlier` | `filters.outlier` |
 | `filters.statisticaloutlier` | `filters.outlier` |
