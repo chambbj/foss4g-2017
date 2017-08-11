@@ -518,249 +518,245 @@ vo
 
 ### Fun Things
 
-```python
-!pdal info ./data/isprs/samp11-utm.laz
 ```
-
+$ pdal info ./data/isprs/samp11-utm.laz
+{
+  "filename": ".\/data\/isprs\/samp11-utm.laz",
+  "pdal_version": "1.5.0 (git-version: cb82e6)",
+  "stats":
+  {
+    "bbox":
     {
-      "filename": ".\/data\/isprs\/samp11-utm.laz",
-      "pdal_version": "1.5.0 (git-version: cb82e6)",
-      "stats":
+      "EPSG:4326":
       {
         "bbox":
         {
-          "EPSG:4326":
-          {
-            "bbox":
-            {
-              "maxx": 9.174733985,
-              "maxy": 48.78751773,
-              "maxz": 404.08,
-              "minx": 9.172901843,
-              "miny": 48.78479165,
-              "minz": 295.25
-            },
-            "boundary": {
-       "coordinates" : [
-          [
-             [ 9.1729018399999998, 48.784794400000003 ],
-             [ 9.1729111999999997, 48.787517729999998 ],
-             [ 9.1747339799999992, 48.787514979999997 ],
-             [ 9.1747245300000007, 48.784791650000003 ],
-             [ 9.1729018399999998, 48.784794400000003 ]
-          ]
-       ],
-       "type" : "Polygon"
-    }
-    
-          },
-          "native":
-          {
-            "bbox":
-            {
-              "maxx": 512834.76,
-              "maxy": 5403849.99,
-              "maxz": 404.08,
-              "minx": 512700.87,
-              "miny": 5403547.26,
-              "minz": 295.25
-            },
-            "boundary": {
-       "coordinates" : [
-          [
-             [ 512700.87, 5403547.2599999998 ],
-             [ 512700.87, 5403849.9900000002 ],
-             [ 512834.76000000001, 5403849.9900000002 ],
-             [ 512834.76000000001, 5403547.2599999998 ],
-             [ 512700.87, 5403547.2599999998 ]
-          ]
-       ],
-       "type" : "Polygon"
-    }
-    
-          }
+          "maxx": 9.174733985,
+          "maxy": 48.78751773,
+          "maxz": 404.08,
+          "minx": 9.172901843,
+          "miny": 48.78479165,
+          "minz": 295.25
         },
-        "statistic":
-        [
-          {
-            "average": 512767.0106,
-            "count": 38010,
-            "kurtosis": -1.278337687e+20,
-            "maximum": 512834.76,
-            "minimum": 512700.87,
-            "name": "X",
-            "position": 0,
-            "skewness": 3.595245493e+21,
-            "stddev": 2630.290728,
-            "variance": 6918429.316
-          },
-          {
-            "average": 5403707.591,
-            "count": 38010,
-            "kurtosis": -8.317960049e+19,
-            "maximum": 5403849.99,
-            "minimum": 5403547.26,
-            "name": "Y",
-            "position": 1,
-            "skewness": 3.596353745e+21,
-            "stddev": 27716.46396,
-            "variance": 768202374.7
-          },
-          {
-            "average": 356.1714336,
-            "count": 38010,
-            "kurtosis": -3.701228803e+18,
-            "maximum": 404.08,
-            "minimum": 295.25,
-            "name": "Z",
-            "position": 2,
-            "skewness": 5.700196521e+17,
-            "stddev": 29.25666907,
-            "variance": 855.9526848
-          },
-          {
-            "average": 0.4268350434,
-            "count": 38010,
-            "kurtosis": -1.912515008,
-            "maximum": 1,
-            "minimum": 0,
-            "name": "Intensity",
-            "position": 3,
-            "skewness": 0.2958361823,
-            "stddev": 0.4946333582,
-            "variance": 0.244662159
-          },
-          {
-            "average": 1,
-            "count": 38010,
-            "kurtosis": 38007,
-            "maximum": 1,
-            "minimum": 1,
-            "name": "ReturnNumber",
-            "position": 4,
-            "skewness": 3.596405534e+21,
-            "stddev": 0.005129284381,
-            "variance": 2.630955826e-05
-          },
-          {
-            "average": 1,
-            "count": 38010,
-            "kurtosis": 38007,
-            "maximum": 1,
-            "minimum": 1,
-            "name": "NumberOfReturns",
-            "position": 5,
-            "skewness": 3.596405534e+21,
-            "stddev": 0.005129284381,
-            "variance": 2.630955826e-05
-          },
-          {
-            "average": 0,
-            "count": 38010,
-            "maximum": 0,
-            "minimum": 0,
-            "name": "ScanDirectionFlag",
-            "position": 6,
-            "stddev": 0,
-            "variance": 0
-          },
-          {
-            "average": 0,
-            "count": 38010,
-            "maximum": 0,
-            "minimum": 0,
-            "name": "EdgeOfFlightLine",
-            "position": 7,
-            "stddev": 0,
-            "variance": 0
-          },
-          {
-            "average": 1.146329913,
-            "count": 38010,
-            "kurtosis": 1.384005316e+16,
-            "maximum": 2,
-            "minimum": 0,
-            "name": "Classification",
-            "position": 8,
-            "skewness": 4.009763308e+15,
-            "stddev": 0.989319905,
-            "variance": 0.9787538744
-          },
-          {
-            "average": 0,
-            "count": 38010,
-            "maximum": 0,
-            "minimum": 0,
-            "name": "ScanAngleRank",
-            "position": 9,
-            "stddev": 0,
-            "variance": 0
-          },
-          {
-            "average": 0,
-            "count": 38010,
-            "maximum": 0,
-            "minimum": 0,
-            "name": "UserData",
-            "position": 10,
-            "stddev": 0,
-            "variance": 0
-          },
-          {
-            "average": 0,
-            "count": 38010,
-            "maximum": 0,
-            "minimum": 0,
-            "name": "PointSourceId",
-            "position": 11,
-            "stddev": 0,
-            "variance": 0
-          }
-        ]
-      }
-    }
+        "boundary": {
+   "coordinates" : [
+      [
+         [ 9.1729018399999998, 48.784794400000003 ],
+         [ 9.1729111999999997, 48.787517729999998 ],
+         [ 9.1747339799999992, 48.787514979999997 ],
+         [ 9.1747245300000007, 48.784791650000003 ],
+         [ 9.1729018399999998, 48.784794400000003 ]
+      ]
+   ],
+   "type" : "Polygon"
+}
 
-+++
-
-```python
-!pdal info ./data/isprs/samp11-utm.laz --boundary
-```
-
-    {
-      "boundary":
-      {
-        "area": 49185.59593,
-        "avg_pt_per_sq_unit": 4.332144732,
-        "avg_pt_spacing": 1.137548793,
-        "boundary": "MULTIPOLYGON (((512735.34793786 5403532.98504758, 512843.01474565 5403547.33000000, 512834.73268351 5403877.26390560, 512718.78381359 5403877.26390560, 512685.65556504 5403848.57400076, 512685.65556504 5403561.67495242, 512735.34793786 5403532.98504758)))",
-        "boundary_json": { "type": "MultiPolygon", "coordinates": [ [ [ [ 512735.34793786, 5403532.98504758 ], [ 512843.01474565, 5403547.33 ], [ 512834.73268351, 5403877.2639056 ], [ 512718.78381359, 5403877.2639056 ], [ 512685.65556504, 5403848.57400076 ], [ 512685.65556504, 5403561.67495242 ], [ 512735.34793786, 5403532.98504758 ] ] ] ] },
-        "density": 0.7727872211,
-        "edge_length": 0,
-        "estimated_edge": 28.68990483,
-        "hex_offsets": "MULTIPOINT (0 0, -8.28206 14.345, 0 28.6899, 16.5641 28.6899, 24.8462 14.345, 16.5641 0)",
-        "sample_size": 5000,
-        "threshold": 15
       },
-      "filename": ".\/data\/isprs\/samp11-utm.laz",
-      "pdal_version": "1.5.0 (git-version: cb82e6)"
-    }
+      "native":
+      {
+        "bbox":
+        {
+          "maxx": 512834.76,
+          "maxy": 5403849.99,
+          "maxz": 404.08,
+          "minx": 512700.87,
+          "miny": 5403547.26,
+          "minz": 295.25
+        },
+        "boundary": {
+   "coordinates" : [
+      [
+         [ 512700.87, 5403547.2599999998 ],
+         [ 512700.87, 5403849.9900000002 ],
+         [ 512834.76000000001, 5403849.9900000002 ],
+         [ 512834.76000000001, 5403547.2599999998 ],
+         [ 512700.87, 5403547.2599999998 ]
+      ]
+   ],
+   "type" : "Polygon"
+}
 
-+++
-
-```python
-!pdal info ./data/isprs/samp11-utm.laz --boundary | jq -r .boundary.boundary
+      }
+    },
+    "statistic":
+    [
+      {
+        "average": 512767.0106,
+        "count": 38010,
+        "kurtosis": -1.278337687e+20,
+        "maximum": 512834.76,
+        "minimum": 512700.87,
+        "name": "X",
+        "position": 0,
+        "skewness": 3.595245493e+21,
+        "stddev": 2630.290728,
+        "variance": 6918429.316
+      },
+      {
+        "average": 5403707.591,
+        "count": 38010,
+        "kurtosis": -8.317960049e+19,
+        "maximum": 5403849.99,
+        "minimum": 5403547.26,
+        "name": "Y",
+        "position": 1,
+        "skewness": 3.596353745e+21,
+        "stddev": 27716.46396,
+        "variance": 768202374.7
+      },
+      {
+        "average": 356.1714336,
+        "count": 38010,
+        "kurtosis": -3.701228803e+18,
+        "maximum": 404.08,
+        "minimum": 295.25,
+        "name": "Z",
+        "position": 2,
+        "skewness": 5.700196521e+17,
+        "stddev": 29.25666907,
+        "variance": 855.9526848
+      },
+      {
+        "average": 0.4268350434,
+        "count": 38010,
+        "kurtosis": -1.912515008,
+        "maximum": 1,
+        "minimum": 0,
+        "name": "Intensity",
+        "position": 3,
+        "skewness": 0.2958361823,
+        "stddev": 0.4946333582,
+        "variance": 0.244662159
+      },
+      {
+        "average": 1,
+        "count": 38010,
+        "kurtosis": 38007,
+        "maximum": 1,
+        "minimum": 1,
+        "name": "ReturnNumber",
+        "position": 4,
+        "skewness": 3.596405534e+21,
+        "stddev": 0.005129284381,
+        "variance": 2.630955826e-05
+      },
+      {
+        "average": 1,
+        "count": 38010,
+        "kurtosis": 38007,
+        "maximum": 1,
+        "minimum": 1,
+        "name": "NumberOfReturns",
+        "position": 5,
+        "skewness": 3.596405534e+21,
+        "stddev": 0.005129284381,
+        "variance": 2.630955826e-05
+      },
+      {
+        "average": 0,
+        "count": 38010,
+        "maximum": 0,
+        "minimum": 0,
+        "name": "ScanDirectionFlag",
+        "position": 6,
+        "stddev": 0,
+        "variance": 0
+      },
+      {
+        "average": 0,
+        "count": 38010,
+        "maximum": 0,
+        "minimum": 0,
+        "name": "EdgeOfFlightLine",
+        "position": 7,
+        "stddev": 0,
+        "variance": 0
+      },
+      {
+        "average": 1.146329913,
+        "count": 38010,
+        "kurtosis": 1.384005316e+16,
+        "maximum": 2,
+        "minimum": 0,
+        "name": "Classification",
+        "position": 8,
+        "skewness": 4.009763308e+15,
+        "stddev": 0.989319905,
+        "variance": 0.9787538744
+      },
+      {
+        "average": 0,
+        "count": 38010,
+        "maximum": 0,
+        "minimum": 0,
+        "name": "ScanAngleRank",
+        "position": 9,
+        "stddev": 0,
+        "variance": 0
+      },
+      {
+        "average": 0,
+        "count": 38010,
+        "maximum": 0,
+        "minimum": 0,
+        "name": "UserData",
+        "position": 10,
+        "stddev": 0,
+        "variance": 0
+      },
+      {
+        "average": 0,
+        "count": 38010,
+        "maximum": 0,
+        "minimum": 0,
+        "name": "PointSourceId",
+        "position": 11,
+        "stddev": 0,
+        "variance": 0
+      }
+    ]
+  }
+}
 ```
 
-    MULTIPOLYGON (((512735.34793786 5403532.98504758, 512843.01474565 5403547.33000000, 512834.73268351 5403877.26390560, 512718.78381359 5403877.26390560, 512685.65556504 5403848.57400076, 512685.65556504 5403561.67495242, 512735.34793786 5403532.98504758)))
++++
+
+```
+$ pdal info ./data/isprs/samp11-utm.laz --boundary
+{
+  "boundary":
+  {
+    "area": 49185.59593,
+    "avg_pt_per_sq_unit": 4.332144732,
+    "avg_pt_spacing": 1.137548793,
+    "boundary": "MULTIPOLYGON (((512735.34793786 5403532.98504758, 512843.01474565 5403547.33000000, 512834.73268351 5403877.26390560, 512718.78381359 5403877.26390560, 512685.65556504 5403848.57400076, 512685.65556504 5403561.67495242, 512735.34793786 5403532.98504758)))",
+    "boundary_json": { "type": "MultiPolygon", "coordinates": [ [ [ [ 512735.34793786, 5403532.98504758 ], [ 512843.01474565, 5403547.33 ], [ 512834.73268351, 5403877.2639056 ], [ 512718.78381359, 5403877.2639056 ], [ 512685.65556504, 5403848.57400076 ], [ 512685.65556504, 5403561.67495242 ], [ 512735.34793786, 5403532.98504758 ] ] ] ] },
+    "density": 0.7727872211,
+    "edge_length": 0,
+    "estimated_edge": 28.68990483,
+    "hex_offsets": "MULTIPOINT (0 0, -8.28206 14.345, 0 28.6899, 16.5641 28.6899, 24.8462 14.345, 16.5641 0)",
+    "sample_size": 5000,
+    "threshold": 15
+  },
+  "filename": ".\/data\/isprs\/samp11-utm.laz",
+  "pdal_version": "1.5.0 (git-version: cb82e6)"
+}
+```
 
 +++
 
-```python
-!pdal translate ./data/isprs/CSite1_orig-utm.laz ./data/foo.laz crop --verbose 5 \
+```
+$ pdal info ./data/isprs/samp11-utm.laz --boundary | jq -r .boundary.boundary
+MULTIPOLYGON (((512735.34793786 5403532.98504758, 512843.01474565 5403547.33000000, 512834.73268351 5403877.26390560, 512718.78381359 5403877.26390560, 512685.65556504 5403848.57400076, 512685.65556504 5403561.67495242, 512735.34793786 5403532.98504758)))
+```
+
++++
+
+```
+$ pdal translate ./data/isprs/CSite1_orig-utm.laz ./data/foo.laz crop --verbose 5 \
     --filters.crop.polygon="$(pdal info ./data/isprs/samp11-utm.laz --boundary | jq -r .boundary.boundary)"
+(pdal translate writers.las Debug) Wrote 95798 points to the LAS file
 ```
-
-    (pdal translate writers.las Debug) Wrote 95798 points to the LAS file
 
 +++
 
