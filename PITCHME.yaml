@@ -3,5 +3,5 @@ logo : figures/pdal_logo_small.png
 remote-control : true
 theme : sky
 theme-override : mycss.css
-footnote : "@chambbj, @DigitalGlobe, @pointcloudpipe"
+footnote : "@chambbj | @DigitalGlobe | @pointcloudpipe"
 highlight : agate
