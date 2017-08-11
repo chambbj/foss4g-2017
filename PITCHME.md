@@ -233,11 +233,7 @@ Recall the kernel density of raw elevations...
 
 Now, consider the `HeightAboveGround` dimension.
 
-```python
-import pandas as pd
-import pdal
-import seaborn as sns
-json = u'''
+```json
 {
   "pipeline":[
     "./data/isprs/samp11-utm.laz",
@@ -248,7 +244,15 @@ json = u'''
       "type":"filters.hag"
     }
   ]
-}'''
+}
+```
+
++++
+
+```python
+import pandas as pd
+import pdal
+import seaborn as sns
 p = pdal.Pipeline(json)
 p.execute()
 df = pd.DataFrame(p.arrays[0])
