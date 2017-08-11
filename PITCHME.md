@@ -37,6 +37,8 @@ Bradley J Chambers, DigitalGlobe
 * Existing PDAL image (`pdal/pdal:latest`) approaches 4 GB
 * Images building plugins on top of the PDAL base image can grow even larger
 
++++
+
 <table style="font-size:100%;">
   <tr>
     <th style="text-align:left;">Image</th>
@@ -64,6 +66,15 @@ Bradley J Chambers, DigitalGlobe
     <td style="text-align:left;">3.67GB</td>
   </tr>
 </table>
+
++++
+
+| **Image** | **Tag** | **Size** |
+|---------|-------|--------|
+| pdal/dependencies | 1.5 | 3.1GB |
+| pdal/dependencies | latest | 3.31GB |
+| pdal/pdal | 1.5 | 3.67GB |
+| pdal/pdal | latest | 3.67GB |
 
 +++
 
