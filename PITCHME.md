@@ -850,8 +850,10 @@ pdal pipeline pipeline.json \
 
 Is now.
 
-`pdal translate input.las output.las \
-    --json pipeline.json`
+```
+pdal translate input.las output.las \
+    --json pipeline.json
+```
 
 +++
 
