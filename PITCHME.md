@@ -96,7 +96,12 @@ The remainder of the presentation will leverage our `pdal-notebook` and present 
 
 ### Analyze
 
-+++?gist=9f34a474e98e4498e5f8ed414a831333
+```python
+import seaborn as sns
+sns.set(color_codes=True)
+sns.set_context("talk")
+sns.kdeplot(samp11['Z'], cut=0, shade=True, vertical=True);
+```
 
 +++
 
