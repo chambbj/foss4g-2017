@@ -82,7 +82,7 @@ p = pdal.Pipeline(json)
 
 ### Validating & Executing the Pipeline
 
-```bash
+```shell
 >>> print('Is pipeline valid? %s' % p.validate())
 Is pipeline valid? True
 
