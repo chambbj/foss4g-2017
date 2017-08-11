@@ -37,9 +37,7 @@ Bradley J Chambers, DigitalGlobe
 * Existing PDAL image (`pdal/pdal:latest`) approaches 4 GB
 * Images building plugins on top of the PDAL base image can grow even larger
 
-+++
-
-<table style="font-size:100%;">
+<table style="font-size:80%;">
   <tr>
     <th style="text-align:left;">Image</th>
     <th style="text-align:left;">Tag</th>
@@ -82,7 +80,7 @@ Bradley J Chambers, DigitalGlobe
 
 * Prototype Alpine image with ~80% of the plugins
 
-<table style="font-size:100%;">
+<table style="font-size:80%;">
   <tr>
     <th style="text-align:left;">Image</th>
     <th style="text-align:left;">Tag</th>
