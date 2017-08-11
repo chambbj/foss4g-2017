@@ -212,6 +212,30 @@ For example,
 
 +++
 
+```json
+{
+  "pipeline":[
+    {
+      "type":"filters.range",
+      "limits":"Z[10:]"
+    },
+    {
+      "type":"filters.range",
+      "limits":"Classification[2:2]"
+    },
+    {
+      "type":"filters.range",
+      "limits":"Red!(20:40]"
+    }
+  ]
+}
+```
+@[3-6](Select all points with Z greater than or equal to 10)
+@[7-10](Select all poitns with classification of 2)
+@[11-14](Select points with red values less than or equal to 20 as well as those greater than 40)
+
++++
+
 Commonly used in both `filters.range`
 
 
