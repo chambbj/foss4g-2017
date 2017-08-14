@@ -284,6 +284,8 @@ Two of PDAL's ground segmentation filters, `filters.pmf` and `filters.smrf`, can
 
 A common use case for this is to ignore points that have been previously marked as noise. In prior versions of PDAL, we had to filter noise out completely prior to ground segmentation.
 
+- In prior versions, noise was removed
+
 ```json
 {
   "pipeline":[
@@ -298,7 +300,7 @@ A common use case for this is to ignore points that have been previously marked 
 }
 ```
 
-Which of course means those noise points are gone forever.
+- Which of course means those noise points are gone forever. |
 
 +++
 
