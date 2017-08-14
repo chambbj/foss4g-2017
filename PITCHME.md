@@ -434,7 +434,7 @@ Exclude ground returns (HAG=0, by definition).
 >>> sns.kdeplot(df['HeightAboveGround'], cut=0, shade=True, vertical=True);
 ```
 
-![png](point_cloud_filters_and_pipelines_foss4g-2017_files/point_cloud_filters_and_pipelines_foss4g-2017_76_0.png)
+![KDE](figures/nonground-kde-hag-with-elm.png)
 
 +++
 
