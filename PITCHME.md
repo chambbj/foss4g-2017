@@ -170,20 +170,31 @@ max    512834.760000  5.403850e+06    404.080000
 ```python
 >>> med = samp11.median()
 >>> print(med)
+```
+
+```bash
 X     512766.940
 Y    5403705.460
 Z        356.865
 dtype: float64
+```
 
-
+```python
 >>> from scipy import spatial
 >>> tree = spatial.cKDTree(samp11)
 >>> dists, idx = tree.query(med, k=3)
 >>> print(dists)
+```
+
+```bash
 [ 0.6213091   1.37645378  1.51757207]
+```
 
-
+```python
 >>> samp11.iloc[idx]
+```
+
+```bash
                X           Y       Z
 31897  512767.16  5403706.02  357.02
 31881  512767.93  5403706.29  356.39
@@ -313,8 +324,7 @@ Now, consider the `HeightAboveGround` dimension.
 
 ```python
 >>> p = pdal.Pipeline(json)
->>> p.execute()
-38010
+>>> count = p.execute()
 >>> df = pd.DataFrame(p.arrays[0])
 >>> sns.kdeplot(df['HeightAboveGround'], cut=0, shade=True, vertical=True);
 ```
@@ -348,8 +358,7 @@ Exclude ground returns (HAG=0, by definition).
 
 ```python
 >>> p = pdal.Pipeline(json)
->>> p.execute()
-15763
+>>> count = p.execute()
 >>> df = pd.DataFrame(p.arrays[0])
 >>> sns.kdeplot(df['HeightAboveGround'], cut=0, shade=True, vertical=True);
 ```
@@ -389,8 +398,7 @@ Exclude ground returns (HAG=0, by definition).
 
 ```python
 >>> p = pdal.Pipeline(json)
->>> p.execute()
-15607
+>>> count = p.execute()
 >>> df = pd.DataFrame(p.arrays[0])
 >>> sns.kdeplot(df['HeightAboveGround'], cut=0, shade=True, vertical=True);
 ```
@@ -401,6 +409,9 @@ Exclude ground returns (HAG=0, by definition).
 
 ```python
 >>> df[['HeightAboveGround']].describe()
+```
+
+```bash
        HeightAboveGround
 count       15607.000000
 mean            5.467956
@@ -532,12 +543,14 @@ Now our KDE plot of mean distances looks like this.
 ```python
 >>> p = pdal.Pipeline(json)
 >>> p.loglevel = 8
->>> p.execute()
+>>> count = p.execute()
 >>> print(p.log)
 ```
 
-    (pypipeline filters.outlier Debug) 		Labeled 241 outliers as noise!
-    
+```bash
+(pypipeline filters.outlier Debug)     Labeled 241 outliers as noise!
+```
+
 +++
 
 ```python
