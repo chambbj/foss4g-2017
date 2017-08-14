@@ -58,6 +58,7 @@ Bradley J Chambers, DigitalGlobe
 
 ### Python Examples
 
+Note:
 The remainder of the presentation will present examples in the context of the PDAL Python package (though CLI samples will be provided as well).
 
 +++
