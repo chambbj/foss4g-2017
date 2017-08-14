@@ -180,6 +180,8 @@ Z        356.865
 dtype: float64
 ```
 
++++
+
 ```python
 >>> from scipy import spatial
 >>> tree = spatial.cKDTree(samp11)
@@ -191,6 +193,8 @@ dtype: float64
 ```bash
 [ 0.6213091   1.37645378  1.51757207]
 ```
+
++++
 
 ```python
 >>> samp11.iloc[idx]
