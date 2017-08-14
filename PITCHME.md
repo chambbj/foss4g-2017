@@ -508,7 +508,7 @@ The KDE plot of the mean distances looks something like this.
 >>> sns.kdeplot(dists, cut=0, shade=True);
 ```
 
-![png](point_cloud_filters_and_pipelines_foss4g-2017_files/point_cloud_filters_and_pipelines_foss4g-2017_83_0.png)
+![Mean Distances](figures/mean-dists.png)
 
 Now, we compute the threshold as described.
 
