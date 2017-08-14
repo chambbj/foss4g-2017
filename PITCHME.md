@@ -456,6 +456,7 @@ Let's begin by iterating through our DataFrame, keeping track of the mean distan
 >>> for _, point in samp11[['X','Y','Z']].iterrows():
 ...     dist, _ = tree.query(point, k=9)
 ...     dists = np.append(dists, dist[1:].mean())
+...
 ```
 
 +++
@@ -476,11 +477,9 @@ Now, we compute the threshold as described.
 >>> threshold = dists.mean()+3*dists.std()
 >>> noise = dists[dists>threshold]
 >>> signal = dists[dists<=threshold]
->>> print(noise.size, "points detected with a "
->>>       "mean distance exceeding the global threshold of", threshold)
+>>> print(noise.size, "points detected with a mean distance exceeding the global threshold of", threshold)
+241 points detected with a mean distance exceeding the global threshold of 3.81763516967
 ```
-
-    241 points detected with a mean distance exceeding the global threshold of 3.81763516967
 
 +++
 
