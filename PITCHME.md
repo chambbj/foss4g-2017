@@ -41,7 +41,7 @@ Bradley J Chambers, DigitalGlobe
 | [pdal/pdal](https://hub.docker.com/r/pdal/pdal/) | 1.5 | 3.67GB |
 | [pdal/pdal](https://hub.docker.com/r/pdal/pdal/) | latest | 3.67GB |
 
-* Images building plugins on top of the PDAL base image can grow even larger |
+- Images building plugins on top of the PDAL base image can grow even larger |
 
 +++
 
