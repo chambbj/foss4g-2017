@@ -246,7 +246,7 @@ dtype: float64
 }
 ```
 @[3-6](Select all points with Z greater than or equal to 10)
-@[7-10](Select all poitns with classification of 2)
+@[7-10](Select all points with classification of 2)
 @[11-14](Select points with red values less than or equal to 20 as well as those greater than 40)
 @[15-18](Reassign all classification values to 0)
 
