@@ -205,13 +205,6 @@ dtype: float64
 
 +++
 
-For example,
-* `Z[10:]` selects all points with Z greater than or equal to 10
-* `Classification[2:2]` selects all points with classification of 2
-* `Red!(20:40]` selects all points with red values less than or equal to 20 as well as those with values greater than 40
-
-+++
-
 ```json
 {
   "pipeline":[
@@ -226,38 +219,7 @@ For example,
     {
       "type":"filters.range",
       "limits":"Red!(20:40]"
-    }
-  ]
-}
-```
-@[3-6](Select all points with Z greater than or equal to 10)
-@[7-10](Select all poitns with classification of 2)
-@[11-14](Select points with red values less than or equal to 20 as well as those greater than 40)
-
-+++
-
-Commonly used in both `filters.range`
-
-
-```json
-{
-  "pipeline":[
-    {
-      "type":"filters.range",
-      "limits":"Z[10:]"
-    }
-  ]
-}
-```
-
-+++
-
-and `filters.assign`.
-
-
-```json
-{
-  "pipeline":[
+    },
     {
       "type":"filters.assign",
       "assignment":"Classification[:]=0"
@@ -265,6 +227,10 @@ and `filters.assign`.
   ]
 }
 ```
+@[3-6](Select all points with Z greater than or equal to 10)
+@[7-10](Select all poitns with classification of 2)
+@[11-14](Select points with red values less than or equal to 20 as well as those greater than 40)
+@[15-18](Reassign all classification values to 0)
 
 +++
 
