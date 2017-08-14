@@ -167,11 +167,12 @@ max    512834.760000  5.403850e+06    404.080000
 
 ### Searching Near a Point
 
+#### Find the median point
+
 ```python
 >>> med = samp11.median()
 >>> print(med)
 ```
-@[1-2](Find the median point)
 
 ```bash
 X     512766.940
@@ -182,13 +183,14 @@ dtype: float64
 
 +++
 
+#### Print the distance to the three nearest neighbors
+
 ```python
 >>> from scipy import spatial
 >>> tree = spatial.cKDTree(samp11)
 >>> dists, idx = tree.query(med, k=3)
 >>> print(dists)
 ```
-@[1-4](Print the distance to the three nearest neighbors)
 
 ```bash
 [ 0.6213091   1.37645378  1.51757207]
@@ -196,10 +198,11 @@ dtype: float64
 
 +++
 
+#### Print the point records of the three nearest neighbors
+
 ```python
 >>> samp11.iloc[idx]
 ```
-@[1](Print the point records of the three nearest neighbors)
 
 ```bash
                X           Y       Z
