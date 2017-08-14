@@ -989,52 +989,42 @@ $ pdal translate ./data/isprs/samp11-utm.laz ./data/foo.laz --json ./pclblock.js
 (pdal translate Debug) Attempting to load plugin '/usr/lib/libpdal_plugin_filter_pclblock.so'.
 (pdal translate Debug) Loaded plugin '/usr/lib/libpdal_plugin_filter_pclblock.so'.
 (pdal translate Debug) Initialized plugin '/usr/lib/libpdal_plugin_filter_pclblock.so'.
-(pdal translate filters.pclblock Debug) 		Process PCLBlock...
-[0;32m	leaf size: 2.000000, 2.000000, 2.000000
-[0;m(pdal translate writers.las Warning) ./data/foo.laz: Found invalid value of '0' for point's return number.
-(pdal translate writers.las Warning) ./data/foo.laz: Found invalid value of '0' for point's number of returns.
-(pdal translate writers.las Debug) Wrote 16721 points to the LAS file
+(pdal translate filters.pclblock Debug)     Process PCLBlock...
+  leaf size: 2.000000, 2.000000, 2.000000
+  (pdal translate writers.las Warning) ./data/foo.laz: Found invalid value of '0' for point's return number.
+  (pdal translate writers.las Warning) ./data/foo.laz: Found invalid value of '0' for point's number of returns.
+  (pdal translate writers.las Debug) Wrote 16721 points to the LAS file
 ```
 
 +++
 
-```python
-%matplotlib inline
-import pdal
-import matplotlib.pyplot as plt
-import numpy as np
-json = u'''
+```json
 {
   "pipeline":[
     "./data/foo.laz"
   ]
-}'''
+}
+```
 
+```python
 p = pdal.Pipeline(json)
-p.validate()
 count = p.execute()
 vg = p.arrays[0]
-    
-json = u'''
+after = vg
+```
+
+```json
 {
   "pipeline":[
     "./data/isprs/samp11-utm.laz"
   ]
-}'''
-
-p = pdal.Pipeline(json)
-p.validate()
-count = p.execute()
-before = p.arrays[0]
-after = vg
+}
 ```
 
-+++
-
 ```python
-f, (ax1, ax2) = plt.subplots(1, 2, figsize=(40, 15), sharey=True, subplot_kw=dict(aspect='equal'))
-ax1.scatter(before['X'], before['Y'], c=before['Z'], cmap='viridis', s=10);
-ax2.scatter(after['X'], after['Y'], c=after['Z'], cmap='viridis', s=10);
+p = pdal.Pipeline(json)
+count = p.execute()
+before = p.arrays[0]
 ```
 
 +++
@@ -1050,9 +1040,7 @@ We can now do filter-only pipelines. Why is that important? Well, you could alwa
 </div>
 
 ```bash
-pdal pipeline pipeline.json \
-    --readers.las.filename=input.las \
-    --writers.las.filename=output.las
+pdal pipeline pipeline.json --readers.las.filename=input.las --writers.las.filename=output.las
 ```
 
 +++
@@ -1060,8 +1048,7 @@ pdal pipeline pipeline.json \
 Is now.
 
 ```bash
-pdal translate input.las output.las \
-    --json pipeline.json
+pdal translate input.las output.las --json pipeline.json
 ```
 
 +++
@@ -1105,24 +1092,7 @@ after = poisson
 
 +++
 
-```python
-f, (ax1, ax2) = plt.subplots(1, 2, figsize=(30, 15), sharey=True, subplot_kw=dict(aspect='equal'))
-ax1.scatter(before['X'], before['Y'], c=before['Z'], cmap='viridis', s=10);
-ax2.scatter(after['X'], after['Y'], c=after['Z'], cmap='viridis', s=10);
-```
-
-+++
-
 ![Poisson](figures/before-after-poisson.png)
-
-+++
-
-```python
-f, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(30, 15), sharey=True, subplot_kw=dict(aspect='equal'))
-ax1.scatter(before['X'], before['Y'], c=before['Z'], cmap='viridis', s=10);
-ax2.scatter(poisson['X'], poisson['Y'], c=poisson['Z'], cmap='viridis', s=10);
-ax3.scatter(vg['X'], vg['Y'], c=vg['Z'], cmap='viridis', s=10);
-```
 
 +++
 
