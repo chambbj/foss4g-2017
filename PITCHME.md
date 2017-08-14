@@ -515,9 +515,9 @@ Now, we compute the threshold as described.
 +++
 
 ```python
->>> threshold = dists.mean()+3*dists.std()
->>> noise = dists[dists>threshold]
->>> signal = dists[dists<=threshold]
+>>> threshold = dists.mean() + 3 * dists.std()
+>>> noise = dists[dists > threshold]
+>>> signal = dists[dists <= threshold]
 >>> print(noise.size, "points detected with a mean distance exceeding the global threshold of", threshold)
 ```
 
@@ -534,6 +534,40 @@ Now our KDE plot of mean distances looks like this.
 ```
 
 ![png](point_cloud_filters_and_pipelines_foss4g-2017_files/point_cloud_filters_and_pipelines_foss4g-2017_87_0.png)
+
++++
+
+```python
+import numpy as np
+import pandas as pd
+from scipy import spatial
+def sor(ins, outs):
+    dists=[]
+    df = pd.DataFrame(ins, columns=['X','Y','Z'])
+    tree = spatial.cKDTree(df)
+    for _, point in df.iterrows():
+        dist, _ = tree.query(point, k=9)
+        dists = np.append(dists, dist[1:].mean())
+    threshold = dists.mean() + 3 * dists.std()
+    outs['Mask'] = dists <= threshold
+    return True
+```
+
++++
+
+```json
+{
+  "pipeline":[
+    "./data/isprs/samp11-utm.laz",
+    {
+      "type":"filters.python",
+      "script":"noise-predicate.py",
+      "function":"sor",
+      "module":"anything"
+    }
+  ]
+}
+```
 
 +++
 
