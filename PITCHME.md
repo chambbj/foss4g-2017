@@ -171,6 +171,7 @@ max    512834.760000  5.403850e+06    404.080000
 >>> med = samp11.median()
 >>> print(med)
 ```
+@[1-2](Find the median point)
 
 ```bash
 X     512766.940
@@ -185,6 +186,7 @@ dtype: float64
 >>> dists, idx = tree.query(med, k=3)
 >>> print(dists)
 ```
+@[1-4](Print the distance to the three nearest neighbors)
 
 ```bash
 [ 0.6213091   1.37645378  1.51757207]
@@ -193,6 +195,7 @@ dtype: float64
 ```python
 >>> samp11.iloc[idx]
 ```
+@[1](Print the point records of the three nearest neighbors)
 
 ```bash
                X           Y       Z
@@ -200,9 +203,6 @@ dtype: float64
 31881  512767.93  5403706.29  356.39
 31972  512765.75  5403706.19  356.27
 ```
-@[1-6](Find the median point)
-@[9-13](Print the distance to the three nearest neighbors)
-@[16-20](Print the point records of the three nearest neighbors)
 
 +++
 
