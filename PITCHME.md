@@ -382,6 +382,9 @@ Exclude ground returns (HAG=0, by definition).
   ]
 }
 ```
+@[4-6](Extended Local Minimum looks for low outliers)
+@[7-10](For this example, let's remove the noise points)
+
 +++
 
 ```python
@@ -398,6 +401,15 @@ Exclude ground returns (HAG=0, by definition).
 
 ```python
 >>> df[['HeightAboveGround']].describe()
+       HeightAboveGround
+count       15607.000000
+mean            5.467956
+std             5.006438
+min           -13.280000
+25%             2.110000
+50%             3.870000
+75%             7.810000
+max            63.700000
 ```
 
 +++
