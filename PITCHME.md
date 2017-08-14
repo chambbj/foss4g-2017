@@ -276,15 +276,15 @@ dtype: float64
 
 +++
 
-### Ignore
+### Ignoring a DimRange
 
-Two of PDAL's ground segmentation filters, `filters.pmf` and `filters.smrf`, can now specify a `DimRange` via the `ignore` parameter to specify points that should be ignored during processing.
+- Available to `filters.pmf` and `filters.smrf`
+- Eliminates the need to completely remove points (e.g., noise)
+- Instead, points can simply be ignored during a processing stage
 
 +++
 
-A common use case for this is to ignore points that have been previously marked as noise. In prior versions of PDAL, we had to filter noise out completely prior to ground segmentation.
-
-- In prior versions, noise was removed
+#### Before
 
 ```json
 {
@@ -300,12 +300,9 @@ A common use case for this is to ignore points that have been previously marked 
 }
 ```
 
-- Which of course means those noise points are gone forever. |
-
 +++
 
-Now, with `ignore` we can
-
+#### After
 
 ```json
 {
@@ -317,8 +314,6 @@ Now, with `ignore` we can
   ]
 }
 ```
-
-Which allows us to retain noise points without having them impact the ground segmentation step.
 
 +++
 
