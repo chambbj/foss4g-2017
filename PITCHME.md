@@ -1113,7 +1113,7 @@ ax2.scatter(after['X'], after['Y'], c=after['Z'], cmap='viridis', s=10);
 
 +++
 
-![png](point_cloud_filters_and_pipelines_foss4g-2017_files/point_cloud_filters_and_pipelines_foss4g-2017_110_0.png)
+![Poisson](figures/before-after-poisson.png)
 
 +++
 
@@ -1126,7 +1126,7 @@ ax3.scatter(vg['X'], vg['Y'], c=vg['Z'], cmap='viridis', s=10);
 
 +++
 
-![png](point_cloud_filters_and_pipelines_foss4g-2017_files/point_cloud_filters_and_pipelines_foss4g-2017_111_0.png)
+![Compare](figures/compare-voxel-poisson.png)
 
 +++
 
