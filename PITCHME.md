@@ -276,15 +276,17 @@ dtype: float64
 
 +++
 
-### Ignoring a DimRange
+### Ignoring a `DimRange`
 
 - Available to `filters.pmf` and `filters.smrf`
 - Eliminates the need to completely remove points (e.g., noise)
-- Instead, points can simply be ignored during a processing stage
+- Instead, points are ignored
 
 +++
 
 #### Before
+
+Noise points are removed!
 
 ```json
 {
@@ -304,6 +306,8 @@ dtype: float64
 
 #### After
 
+Noise points are left intact, just ignored.
+
 ```json
 {
   "pipeline":[
@@ -319,9 +323,10 @@ dtype: float64
 
 ### Height Above Ground
 
-<div align="left">
-To compute `HeightAboveGround` we will use two PDAL filters, first [SMRF](https://pdal.io/stages/filters.smrf.html) to segment ground and non-ground returns, and [HAG](https://pdal.io/stages/filters.hag.html) to estimate the `HeightAboveGround` using the return information.
-</div>
+To compute `HeightAboveGround`:
+
+#1 [SMRF](https://pdal.io/stages/filters.smrf.html) to segment ground and non-ground returns
+#2 [HAG](https://pdal.io/stages/filters.hag.html) to estimate the `HeightAboveGround` using the return information.
 
 Recall the kernel density of raw elevations...
 
