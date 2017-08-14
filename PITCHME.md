@@ -326,9 +326,9 @@ Noise points are left intact, just ignored.
 1. [SMRF](https://pdal.io/stages/filters.smrf.html) to segment ground and non-ground returns
 2. [HAG](https://pdal.io/stages/filters.hag.html) to estimate the `HeightAboveGround` using the return information.
 
-- Recall the kernel density of raw elevations... |
-
 +++
+
+Recall the kernel density of raw elevations...
 
 ![KDE Z](figures/kde-z.png)
 
