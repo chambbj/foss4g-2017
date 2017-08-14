@@ -591,31 +591,24 @@ json = u'''
     "./data/isprs/samp11-utm.laz",
     {
       "type": "filters.smrf"
-    },
-    {
+    }, {
       "type": "filters.hag"
-    },
-    {
+    }, {
       "type": "filters.range",
       "limits": "HeightAboveGround[3:]"
-    },
-    {
+    }, {
       "type": "filters.cluster",
       "tolerance": 3
-    },
-    {
+    }, {
       "type": "filters.groupby",
       "dimension": "ClusterID"
-    },
-    {
+    }, {
       "type": "filters.locate",
       "dimension": "HeightAboveGround",
       "minmax": "max"
-    },
-    {
+    }, {
       "type": "filters.merge"
-    },
-    {
+    }, {
       "type": "filters.range",
       "limits": "HeightAboveGround[20:]"
     }
@@ -1080,3 +1073,9 @@ ax3.scatter(vg['X'], vg['Y'], c=vg['Z'], cmap='viridis', s=10);
 
 ![png](point_cloud_filters_and_pipelines_foss4g-2017_files/point_cloud_filters_and_pipelines_foss4g-2017_111_0.png)
 
++++
+
+### Need to Know
+
+- `filters.programmable` and `filters.predicate` are now `filters.python`
+- New MATLAB plugin in master
