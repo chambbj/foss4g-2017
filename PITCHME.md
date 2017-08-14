@@ -312,10 +312,10 @@ Now, consider the `HeightAboveGround` dimension.
 +++
 
 ```python
-p = pdal.Pipeline(json)
-p.execute()
-df = pd.DataFrame(p.arrays[0])
-sns.kdeplot(df['HeightAboveGround'], cut=0, shade=True, vertical=True);
+>>> p = pdal.Pipeline(json)
+>>> p.execute()
+>>> df = pd.DataFrame(p.arrays[0])
+>>> sns.kdeplot(df['HeightAboveGround'], cut=0, shade=True, vertical=True);
 ```
 
 ![KDE HAG](figures/initial-kde-hag.png)
@@ -346,10 +346,10 @@ Exclude ground returns (HAG=0, by definition).
 +++
 
 ```python
-p = pdal.Pipeline(json)
-p.execute()
-df = pd.DataFrame(p.arrays[0])
-sns.kdeplot(df['HeightAboveGround'], cut=0, shade=True, vertical=True);
+>>> p = pdal.Pipeline(json)
+>>> p.execute()
+>>> df = pd.DataFrame(p.arrays[0])
+>>> sns.kdeplot(df['HeightAboveGround'], cut=0, shade=True, vertical=True);
 ```
 
 ![KDE](figures/nonground-kde-hag.png)
@@ -383,16 +383,16 @@ sns.kdeplot(df['HeightAboveGround'], cut=0, shade=True, vertical=True);
 +++
 
 ```python
-p = pdal.Pipeline(json)
-count = p.execute()
-df = pd.DataFrame(p.arrays[0])
-sns.kdeplot(df['HeightAboveGround'], cut=0, shade=True, vertical=True);
+>>> p = pdal.Pipeline(json)
+>>> count = p.execute()
+>>> df = pd.DataFrame(p.arrays[0])
+>>> sns.kdeplot(df['HeightAboveGround'], cut=0, shade=True, vertical=True);
 ```
 
 ![png](point_cloud_filters_and_pipelines_foss4g-2017_files/point_cloud_filters_and_pipelines_foss4g-2017_76_0.png)
 
 ```python
-df[['HeightAboveGround']].describe()
+>>> df[['HeightAboveGround']].describe()
 ```
 
 +++
@@ -435,11 +435,10 @@ Any point whose mean distance $\mu_i$ exceeds this threshold is then labeled as 
 Let's begin by iterating through our DataFrame, keeping track of the mean distance to our eight nearest neighbors.
 
 ```python
-import numpy as np
-dists = []
-for _, point in samp11[['X','Y','Z']].iterrows():
-    dist, _ = tree.query(point, k=9)
-    dists = np.append(dists, dist[1:].mean())
+>>> dists = []
+>>> for _, point in samp11[['X','Y','Z']].iterrows():
+...     dist, _ = tree.query(point, k=9)
+...     dists = np.append(dists, dist[1:].mean())
 ```
 
 +++
@@ -447,7 +446,7 @@ for _, point in samp11[['X','Y','Z']].iterrows():
 The KDE plot of the mean distances looks something like this.
 
 ```python
-sns.kdeplot(dists, cut=0, shade=True);
+>>> sns.kdeplot(dists, cut=0, shade=True);
 ```
 
 ![png](point_cloud_filters_and_pipelines_foss4g-2017_files/point_cloud_filters_and_pipelines_foss4g-2017_83_0.png)
@@ -457,11 +456,11 @@ Now, we compute the threshold as described.
 +++
 
 ```python
-threshold = dists.mean()+3*dists.std()
-noise = dists[dists>threshold]
-signal = dists[dists<=threshold]
-print(noise.size, "points detected with a "
-      "mean distance exceeding the global threshold of", threshold)
+>>> threshold = dists.mean()+3*dists.std()
+>>> noise = dists[dists>threshold]
+>>> signal = dists[dists<=threshold]
+>>> print(noise.size, "points detected with a "
+>>>       "mean distance exceeding the global threshold of", threshold)
 ```
 
     241 points detected with a mean distance exceeding the global threshold of 3.81763516967
@@ -471,7 +470,7 @@ print(noise.size, "points detected with a "
 Now our KDE plot of mean distances looks like this.
 
 ```python
-sns.kdeplot(signal, cut=0, shade=True);
+>>> sns.kdeplot(signal, cut=0, shade=True);
 ```
 
 ![png](point_cloud_filters_and_pipelines_foss4g-2017_files/point_cloud_filters_and_pipelines_foss4g-2017_87_0.png)
@@ -513,10 +512,10 @@ sns.kdeplot(signal, cut=0, shade=True);
 +++
 
 ```python
-p = pdal.Pipeline(json)
-p.loglevel = 8
-p.execute()
-print(p.log)
+>>> p = pdal.Pipeline(json)
+>>> p.loglevel = 8
+>>> p.execute()
+>>> print(p.log)
 ```
 
     (pypipeline filters.outlier Debug) 		Labeled 241 outliers as noise!
@@ -562,19 +561,19 @@ json = u'''
 }
 
 '''
-p = pdal.Pipeline(json)
-p.execute()
-vo = pd.DataFrame(p.arrays[0], columns=['X','Y','Z','HeightAboveGround'])
+>>> p = pdal.Pipeline(json)
+>>> p.execute()
+>>> vo = pd.DataFrame(p.arrays[0], columns=['X','Y','Z','HeightAboveGround'])
 ```
 
 
 ```python
-vo.describe()
+>>> vo.describe()
 ```
 
 
 ```python
-vo
+>>> vo
 ```
 
 +++
