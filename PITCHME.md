@@ -472,11 +472,14 @@ Now, we compute the threshold as described.
 
 +++
 
-```bash
+```python
 >>> threshold = dists.mean()+3*dists.std()
 >>> noise = dists[dists>threshold]
 >>> signal = dists[dists<=threshold]
 >>> print(noise.size, "points detected with a mean distance exceeding the global threshold of", threshold)
+```
+
+```bash
 241 points detected with a mean distance exceeding the global threshold of 3.81763516967
 ```
 
