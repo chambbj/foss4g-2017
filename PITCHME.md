@@ -594,23 +594,17 @@ json = u'''
     }, {
       "type": "filters.hag"
     }, {
-      "type": "filters.range",
-      "limits": "HeightAboveGround[3:]"
+      "type": "filters.range", "limits": "HeightAboveGround[3:]"
     }, {
-      "type": "filters.cluster",
-      "tolerance": 3
+      "type": "filters.cluster", "tolerance": 3
     }, {
-      "type": "filters.groupby",
-      "dimension": "ClusterID"
+      "type": "filters.groupby", "dimension": "ClusterID"
     }, {
-      "type": "filters.locate",
-      "dimension": "HeightAboveGround",
-      "minmax": "max"
+      "type": "filters.locate", "dimension": "HeightAboveGround", "minmax": "max"
     }, {
       "type": "filters.merge"
     }, {
-      "type": "filters.range",
-      "limits": "HeightAboveGround[20:]"
+      "type": "filters.range", "limits": "HeightAboveGround[20:]"
     }
   ]
 }
@@ -621,6 +615,7 @@ json = u'''
 >>> vo = pd.DataFrame(p.arrays[0], columns=['X','Y','Z','HeightAboveGround'])
 ```
 
++++
 
 ```python
 >>> vo.describe()
