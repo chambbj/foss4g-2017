@@ -533,7 +533,7 @@ Now our KDE plot of mean distances looks like this.
 >>> sns.kdeplot(signal, cut=0, shade=True);
 ```
 
-![png](point_cloud_filters_and_pipelines_foss4g-2017_files/point_cloud_filters_and_pipelines_foss4g-2017_87_0.png)
+![Signal](figures/mean-dists-signal.png)
 
 +++
 
