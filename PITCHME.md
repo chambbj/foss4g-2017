@@ -696,7 +696,7 @@ max    512831.280000  5.403739e+06  401.930000          63.700000
 
 ### Fun Things
 
-```
+```bash
 $ pdal info ./data/isprs/samp11-utm.laz
 {
   "filename": ".\/data\/isprs\/samp11-utm.laz",
@@ -899,7 +899,7 @@ $ pdal info ./data/isprs/samp11-utm.laz
 
 +++
 
-```
+```bash
 $ pdal info ./data/isprs/samp11-utm.laz --boundary
 {
   "boundary":
@@ -923,14 +923,14 @@ $ pdal info ./data/isprs/samp11-utm.laz --boundary
 
 +++
 
-```
+```bash
 $ pdal info ./data/isprs/samp11-utm.laz --boundary | jq -r .boundary.boundary
 MULTIPOLYGON (((512735.34793786 5403532.98504758, 512843.01474565 5403547.33000000, 512834.73268351 5403877.26390560, 512718.78381359 5403877.26390560, 512685.65556504 5403848.57400076, 512685.65556504 5403561.67495242, 512735.34793786 5403532.98504758)))
 ```
 
 +++
 
-```
+```bash
 $ pdal translate ./data/isprs/CSite1_orig-utm.laz ./data/foo.laz crop --verbose 5 \
     --filters.crop.polygon="$(pdal info ./data/isprs/samp11-utm.laz --boundary | jq -r .boundary.boundary)"
 (pdal translate writers.las Debug) Wrote 95798 points to the LAS file
@@ -956,51 +956,45 @@ $ pdal translate ./data/isprs/CSite1_orig-utm.laz ./data/foo.laz crop --verbose 
 
 +++
 
-```python
-import json
-with open('./pclblock.json') as json_data:
-    d = json.load(json_data)
-    print json.dumps(d, indent=2)
-```
-
+```json
+{
+  "pipeline": [
     {
-      "pipeline": [
+      "type": "filters.pclblock", 
+      "methods": [
         {
-          "type": "filters.pclblock", 
-          "methods": [
-            {
-              "setLeafSize": {
-                "y": 2.0, 
-                "x": 2.0, 
-                "z": 2.0
-              }, 
-              "name": "VoxelGrid"
-            }
-          ]
+          "setLeafSize": {
+            "y": 2.0, 
+            "x": 2.0, 
+            "z": 2.0
+          }, 
+          "name": "VoxelGrid"
         }
       ]
     }
+  ]
+}
+```
 
 +++
 
-```python
-!pdal translate ./data/isprs/samp11-utm.laz ./data/foo.laz --json ./pclblock.json --verbose 5
+```bash
+$ pdal translate ./data/isprs/samp11-utm.laz ./data/foo.laz --json ./pclblock.json --verbose 5
+(pdal translate Debug) Plugin search path: '.'
+(pdal translate Debug) Plugin search path: './lib'
+(pdal translate Debug) Plugin search path: '../lib'
+(pdal translate Debug) Plugin search path: './bin'
+(pdal translate Debug) Plugin search path: '../bin'
+(pdal translate Debug) Plugin search path: '/usr/lib'
+(pdal translate Debug) Attempting to load plugin '/usr/lib/libpdal_plugin_filter_pclblock.so'.
+(pdal translate Debug) Loaded plugin '/usr/lib/libpdal_plugin_filter_pclblock.so'.
+(pdal translate Debug) Initialized plugin '/usr/lib/libpdal_plugin_filter_pclblock.so'.
+(pdal translate filters.pclblock Debug) 		Process PCLBlock...
+[0;32m	leaf size: 2.000000, 2.000000, 2.000000
+[0;m(pdal translate writers.las Warning) ./data/foo.laz: Found invalid value of '0' for point's return number.
+(pdal translate writers.las Warning) ./data/foo.laz: Found invalid value of '0' for point's number of returns.
+(pdal translate writers.las Debug) Wrote 16721 points to the LAS file
 ```
-
-    (pdal translate Debug) Plugin search path: '.'
-    (pdal translate Debug) Plugin search path: './lib'
-    (pdal translate Debug) Plugin search path: '../lib'
-    (pdal translate Debug) Plugin search path: './bin'
-    (pdal translate Debug) Plugin search path: '../bin'
-    (pdal translate Debug) Plugin search path: '/usr/lib'
-    (pdal translate Debug) Attempting to load plugin '/usr/lib/libpdal_plugin_filter_pclblock.so'.
-    (pdal translate Debug) Loaded plugin '/usr/lib/libpdal_plugin_filter_pclblock.so'.
-    (pdal translate Debug) Initialized plugin '/usr/lib/libpdal_plugin_filter_pclblock.so'.
-    (pdal translate filters.pclblock Debug) 		Process PCLBlock...
-    [0;32m	leaf size: 2.000000, 2.000000, 2.000000
-    [0;m(pdal translate writers.las Warning) ./data/foo.laz: Found invalid value of '0' for point's return number.
-    (pdal translate writers.las Warning) ./data/foo.laz: Found invalid value of '0' for point's number of returns.
-    (pdal translate writers.las Debug) Wrote 16721 points to the LAS file
 
 +++
 
@@ -1055,7 +1049,7 @@ ax2.scatter(after['X'], after['Y'], c=after['Z'], cmap='viridis', s=10);
 We can now do filter-only pipelines. Why is that important? Well, you could always create the pipeline, and do substitution:
 </div>
 
-```
+```bash
 pdal pipeline pipeline.json \
     --readers.las.filename=input.las \
     --writers.las.filename=output.las
@@ -1065,7 +1059,7 @@ pdal pipeline pipeline.json \
 
 Is now.
 
-```
+```bash
 pdal translate input.las output.las \
     --json pipeline.json
 ```
