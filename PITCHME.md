@@ -1039,7 +1039,7 @@ ax2.scatter(after['X'], after['Y'], c=after['Z'], cmap='viridis', s=10);
 
 +++
 
-![png](point_cloud_filters_and_pipelines_foss4g-2017_files/point_cloud_filters_and_pipelines_foss4g-2017_102_0.png)
+![VoxelGrid](figures/before-after-voxel.png)
 
 +++
 
