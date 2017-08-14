@@ -314,6 +314,7 @@ Now, consider the `HeightAboveGround` dimension.
 ```python
 >>> p = pdal.Pipeline(json)
 >>> p.execute()
+38010
 >>> df = pd.DataFrame(p.arrays[0])
 >>> sns.kdeplot(df['HeightAboveGround'], cut=0, shade=True, vertical=True);
 ```
@@ -348,6 +349,7 @@ Exclude ground returns (HAG=0, by definition).
 ```python
 >>> p = pdal.Pipeline(json)
 >>> p.execute()
+15763
 >>> df = pd.DataFrame(p.arrays[0])
 >>> sns.kdeplot(df['HeightAboveGround'], cut=0, shade=True, vertical=True);
 ```
@@ -384,12 +386,15 @@ Exclude ground returns (HAG=0, by definition).
 
 ```python
 >>> p = pdal.Pipeline(json)
->>> count = p.execute()
+>>> p.execute()
+15607
 >>> df = pd.DataFrame(p.arrays[0])
 >>> sns.kdeplot(df['HeightAboveGround'], cut=0, shade=True, vertical=True);
 ```
 
 ![png](point_cloud_filters_and_pipelines_foss4g-2017_files/point_cloud_filters_and_pipelines_foss4g-2017_76_0.png)
+
++++
 
 ```python
 >>> df[['HeightAboveGround']].describe()
