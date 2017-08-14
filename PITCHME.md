@@ -104,22 +104,40 @@ Pipeline contains 1 array(s).
 
 ### Use the `ndarray`
 
+#### Print the first point record
+
 ```python
 >>> print(arr[0])
+```
+
+```bash
 (512743.63, 5403547.33, 308.68, 0, 1, 1, 0, 0, 2, 0.0, 0, 0)
+```
 
++++
 
+#### Print the first 10 X values
+
+```python
 >>> print(arr['X'][:10])
+```
+
+```bash
 [ 512743.63  512743.62  512743.61  512743.6   512743.6   512741.5   512741.5
   512741.49  512741.48  512741.47]
+```
 
++++
 
+#### Print the mean of all Z values
+
+```python
 >>> print(arr['Z'].mean())
+```
+
+```bash
 356.17143357
 ```
-@[1-2](Print the first point record)
-@[5-7](Print the first 10 X values)
-@[10-11](Print the mean of all Z values)
 
 +++
 
@@ -129,6 +147,9 @@ Pipeline contains 1 array(s).
 >>> import pandas as pd
 >>> samp11 = pd.DataFrame(arr, columns=['X','Y','Z'])
 >>> samp11.head()
+```
+
+```bash
            X           Y       Z
 0  512743.63  5403547.33  308.68
 1  512743.62  5403547.33  308.70
@@ -141,6 +162,9 @@ Pipeline contains 1 array(s).
 
 ```python
 >>> samp11.describe()
+```
+
+```bash
                    X             Y             Z
 count   38010.000000  3.801000e+04  38010.000000
 mean   512767.010570  5.403708e+06    356.171434
