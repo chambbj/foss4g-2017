@@ -334,8 +334,6 @@ Recall the kernel density of raw elevations...
 
 +++
 
-Now, consider the `HeightAboveGround` dimension.
-
 ```json
 {
   "pipeline":[
@@ -349,7 +347,7 @@ Now, consider the `HeightAboveGround` dimension.
   ]
 }
 ```
-@[7-9]
+@[7-9](Now, consider the `HeightAboveGround` dimension)
 
 +++
 
@@ -363,8 +361,6 @@ Now, consider the `HeightAboveGround` dimension.
 ![KDE HAG](figures/initial-kde-hag.png)
 
 +++
-
-Exclude ground returns (HAG=0, by definition).
 
 ```json
 {
@@ -383,7 +379,7 @@ Exclude ground returns (HAG=0, by definition).
   ]
 }
 ```
-@[10-13]
+@[10-13](Exclude ground returns (HAG=0, by definition))
 
 +++
 
@@ -950,7 +946,7 @@ $ pdal translate ./data/isprs/CSite1_orig-utm.laz ./data/foo.laz crop --verbose 
 | `filters.height` | `filters.hag` |
 | `filters.dartsample` | `filters.sample` |
 
-Native PDAL variants of PCL Plugin filters
+<p style="font-size:0.6em">Native PDAL variants of PCL Plugin filters</p>
 
 +++
 
