@@ -942,8 +942,6 @@ $ pdal translate ./data/isprs/CSite1_orig-utm.laz ./data/foo.laz crop --verbose 
 
 +++
 
-* Native PDAL variants of PCL Plugin filters
-
 | **Old (PCL)** | **New (PDAL)** |
 |---------------|----------------|
 | `filters.ground` | `filters.pmf` |
@@ -952,9 +950,9 @@ $ pdal translate ./data/isprs/CSite1_orig-utm.laz ./data/foo.laz crop --verbose 
 | `filters.height` | `filters.hag` |
 | `filters.dartsample` | `filters.sample` |
 
-+++
+Native PDAL variants of PCL Plugin filters
 
-* PCL JSON specifcation bumped to v0.2 → easier to embed in PDAL JSON
++++
 
 ```json
 {
@@ -975,6 +973,8 @@ $ pdal translate ./data/isprs/CSite1_orig-utm.laz ./data/foo.laz crop --verbose 
   ]
 }
 ```
+
+<div font-size=80%">PCL JSON specifcation bumped to v0.2 → easier to embed in PDAL JSON</div>
 
 +++
 
