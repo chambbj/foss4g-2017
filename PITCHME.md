@@ -973,7 +973,8 @@ Native PDAL variants of PCL Plugin filters
   ]
 }
 ```
-*PCL JSON specifcation bumped to v0.2 → easier to embed in PDAL JSON*
+
+<p style="font-size:80%">PCL JSON specifcation bumped to v0.2 → easier to embed in PDAL JSON</p>
 
 +++
 
