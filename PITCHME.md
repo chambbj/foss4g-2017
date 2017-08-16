@@ -940,11 +940,9 @@ $ pdal translate ./data/isprs/CSite1_orig-utm.laz ./data/foo.laz crop --verbose 
 
 ### Status of PCL Filters
 
-* Native PDAL variants of PCL Plugin filters
-* PCL JSON specifcation bumped to v0.2 → easier to embed in PDAL JSON
-* Removed the PCL Visualizers
-
 +++
+
+* Native PDAL variants of PCL Plugin filters
 
 | **Old (PCL)** | **New (PDAL)** |
 |---------------|----------------|
@@ -955,6 +953,8 @@ $ pdal translate ./data/isprs/CSite1_orig-utm.laz ./data/foo.laz crop --verbose 
 | `filters.dartsample` | `filters.sample` |
 
 +++
+
+* PCL JSON specifcation bumped to v0.2 → easier to embed in PDAL JSON
 
 ```json
 {
