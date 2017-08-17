@@ -8,27 +8,11 @@ Bradley J Chambers, DigitalGlobe
 
 ### Overview
 
-* Python Package
 * Docker Images
-* Python Examples
-* Status of PCL Filters
 * Filter-only Pipelines
-
----
-
-### Python Package
-
-* The PDAL Python [package](https://pypi.python.org/pypi/PDAL) can be installed via [pip](https://pip.pypa.io/en/stable/).
-
-  ```
-  pip install pdal
-  ```
-
-* Once installed, simply
-
-  ```python
-  import pdal
-  ```
+* Status of PCL Filters
+* Python Package
+* Python Examples
 
 ---
 
@@ -53,6 +37,137 @@ Bradley J Chambers, DigitalGlobe
 |---------|-------|--------|
 | pdal/dependencies | alpine | 1.07GB |
 | pdal/pdal | alpine | 365MB |
+
+---
+
+### Filter-only Pipelines
+
+<div align="left">
+We can now do filter-only pipelines. Why is that important? Well, you could always create the pipeline, and do substitution:
+</div>
+
+```bash
+pdal pipeline pipeline.json --readers.las.filename=input.las --writers.las.filename=output.las
+```
+
++++
+
+Is now.
+
+```bash
+pdal translate input.las output.las --json pipeline.json
+```
+
+---
+
+### Status of PCL Filters
+
++++
+
+| **Old (PCL)** | **New (PDAL)** |
+|---------------|----------------|
+| `filters.ground` | `filters.pmf` |
+| `filters.radiusoutlier` | `filters.outlier` |
+| `filters.statisticaloutlier` | `filters.outlier` |
+| `filters.height` | `filters.hag` |
+| `filters.dartsample` | `filters.sample` |
+
+<p style="font-size:0.6em">Native PDAL variants of PCL Plugin filters</p>
+
++++
+
+```json
+{
+  "pipeline": [
+    {
+      "type": "filters.pclblock", 
+      "methods": [
+        {
+          "setLeafSize": {
+            "y": 2.0, 
+            "x": 2.0, 
+            "z": 2.0
+          }, 
+          "name": "VoxelGrid"
+        }
+      ]
+    }
+  ]
+}
+```
+
+<p style="font-size:0.6em">PCL JSON specifcation bumped to v0.2 → easier to embed in PDAL JSON</p>
+
++++
+
+```bash
+$ pdal translate ./data/isprs/samp11-utm.laz ./data/foo.laz --json ./pclblock.json --verbose 5
+(pdal translate Debug) Plugin search path: '.'
+(pdal translate Debug) Plugin search path: './lib'
+(pdal translate Debug) Plugin search path: '../lib'
+(pdal translate Debug) Plugin search path: './bin'
+(pdal translate Debug) Plugin search path: '../bin'
+(pdal translate Debug) Plugin search path: '/usr/lib'
+(pdal translate Debug) Attempting to load plugin '/usr/lib/libpdal_plugin_filter_pclblock.so'.
+(pdal translate Debug) Loaded plugin '/usr/lib/libpdal_plugin_filter_pclblock.so'.
+(pdal translate Debug) Initialized plugin '/usr/lib/libpdal_plugin_filter_pclblock.so'.
+(pdal translate filters.pclblock Debug)     Process PCLBlock...
+  leaf size: 2.000000, 2.000000, 2.000000
+  (pdal translate writers.las Warning) ./data/foo.laz: Found invalid value of '0' for point's return number.
+  (pdal translate writers.las Warning) ./data/foo.laz: Found invalid value of '0' for point's number of returns.
+  (pdal translate writers.las Debug) Wrote 16721 points to the LAS file
+```
+
++++
+
+```json
+{
+  "pipeline":[
+    "./data/foo.laz"
+  ]
+}
+```
+
+```python
+p = pdal.Pipeline(json)
+count = p.execute()
+vg = p.arrays[0]
+after = vg
+```
+
+```json
+{
+  "pipeline":[
+    "./data/isprs/samp11-utm.laz"
+  ]
+}
+```
+
+```python
+p = pdal.Pipeline(json)
+count = p.execute()
+before = p.arrays[0]
+```
+
++++
+
+![VoxelGrid](figures/before-after-voxel.png)
+
+---
+
+### Python Package
+
+* The PDAL Python [package](https://pypi.python.org/pypi/PDAL) can be installed via [pip](https://pip.pypa.io/en/stable/).
+
+  ```
+  pip install pdal
+  ```
+
+* Once installed, simply
+
+  ```python
+  import pdal
+  ```
 
 ---
 
@@ -1136,121 +1251,6 @@ $ pdal translate ./data/isprs/CSite1_orig-utm.laz ./data/foo.laz crop --verbose 
 
 +++
 
-### Status of PCL Filters
-
-+++
-
-| **Old (PCL)** | **New (PDAL)** |
-|---------------|----------------|
-| `filters.ground` | `filters.pmf` |
-| `filters.radiusoutlier` | `filters.outlier` |
-| `filters.statisticaloutlier` | `filters.outlier` |
-| `filters.height` | `filters.hag` |
-| `filters.dartsample` | `filters.sample` |
-
-<p style="font-size:0.6em">Native PDAL variants of PCL Plugin filters</p>
-
-+++
-
-```json
-{
-  "pipeline": [
-    {
-      "type": "filters.pclblock", 
-      "methods": [
-        {
-          "setLeafSize": {
-            "y": 2.0, 
-            "x": 2.0, 
-            "z": 2.0
-          }, 
-          "name": "VoxelGrid"
-        }
-      ]
-    }
-  ]
-}
-```
-
-<p style="font-size:0.6em">PCL JSON specifcation bumped to v0.2 → easier to embed in PDAL JSON</p>
-
-+++
-
-```bash
-$ pdal translate ./data/isprs/samp11-utm.laz ./data/foo.laz --json ./pclblock.json --verbose 5
-(pdal translate Debug) Plugin search path: '.'
-(pdal translate Debug) Plugin search path: './lib'
-(pdal translate Debug) Plugin search path: '../lib'
-(pdal translate Debug) Plugin search path: './bin'
-(pdal translate Debug) Plugin search path: '../bin'
-(pdal translate Debug) Plugin search path: '/usr/lib'
-(pdal translate Debug) Attempting to load plugin '/usr/lib/libpdal_plugin_filter_pclblock.so'.
-(pdal translate Debug) Loaded plugin '/usr/lib/libpdal_plugin_filter_pclblock.so'.
-(pdal translate Debug) Initialized plugin '/usr/lib/libpdal_plugin_filter_pclblock.so'.
-(pdal translate filters.pclblock Debug)     Process PCLBlock...
-  leaf size: 2.000000, 2.000000, 2.000000
-  (pdal translate writers.las Warning) ./data/foo.laz: Found invalid value of '0' for point's return number.
-  (pdal translate writers.las Warning) ./data/foo.laz: Found invalid value of '0' for point's number of returns.
-  (pdal translate writers.las Debug) Wrote 16721 points to the LAS file
-```
-
-+++
-
-```json
-{
-  "pipeline":[
-    "./data/foo.laz"
-  ]
-}
-```
-
-```python
-p = pdal.Pipeline(json)
-count = p.execute()
-vg = p.arrays[0]
-after = vg
-```
-
-```json
-{
-  "pipeline":[
-    "./data/isprs/samp11-utm.laz"
-  ]
-}
-```
-
-```python
-p = pdal.Pipeline(json)
-count = p.execute()
-before = p.arrays[0]
-```
-
-+++
-
-![VoxelGrid](figures/before-after-voxel.png)
-
-+++
-
-### Filter-only Pipelines
-
-<div align="left">
-We can now do filter-only pipelines. Why is that important? Well, you could always create the pipeline, and do substitution:
-</div>
-
-```bash
-pdal pipeline pipeline.json --readers.las.filename=input.las --writers.las.filename=output.las
-```
-
-+++
-
-Is now.
-
-```bash
-pdal translate input.las output.las --json pipeline.json
-```
-
-+++
-
 ### Possible comparison to earlier voxel grid
 
 ```python
@@ -1295,13 +1295,6 @@ after = poisson
 +++
 
 ![Compare](figures/compare-voxel-poisson.png)
-
-+++
-
-### Need to Know
-
-- `filters.programmable` and `filters.predicate` are now `filters.python`
-- New MATLAB plugin in master
 
 +++
 
