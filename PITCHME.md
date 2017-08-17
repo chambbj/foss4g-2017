@@ -452,6 +452,62 @@ max            63.700000
 
 +++
 
+### Estimate Rank
+
+- `filters.estimaterank`
+- Compute covariance of neighborhoods of points and estimate rank
+- Potentially useful for identifying linear features, planes, etc.
+
++++
+
+```json
+{
+  "pipeline":[
+    "./data/isprs/samp11-utm.laz",
+    {
+      "type":"filters.estimaterank"
+    }
+  ]
+}
+```
+
++++
+
+![rank distribution](figures/rank.png)
+
++++
+
+![rank scatter](figures/rank-scatter.png)
+
++++
+
+```json
+{
+  "pipeline":[
+    "./data/isprs/samp11-utm.laz",
+    {
+      "type":"filters.smrf"
+    },
+    {
+      "type":"filters.hag"
+    },
+    {
+      "type":"filters.range",
+      "limits":"HeightAboveGround[2:)"
+    },
+    {
+      "type":"filters.estimaterank"
+    }
+  ]
+}
+```
+
++++
+
+![rank scatter nonground](figures/rank-scatter-nonground.png)
+
++++
+
 ### Removing Noise
 
 This tutorial is meant to walk through the use of and theory behind PDAL's `outlier` filter.
@@ -1100,3 +1156,59 @@ after = poisson
 
 - `filters.programmable` and `filters.predicate` are now `filters.python`
 - New MATLAB plugin in master
+
++++
+
+### Unorganized Extras
+
+- `filters.approximatecoplanar`
+  - Considers ratios of eigenvalues to approximate whether or not a point is part of a planar region
+  - Creates a new binary dimension specifying 0 (not planar) or 1 (planar)
+- `filters.assign`
+  - Assign a value to a `DimRange`
+  - Handy for resetting classifications
+- `filters.cluster`
+  - Cluster points by proximity (Euclidean distance)
+  - Iterate over newly added points until no more points can be added
+  - Creates a new integer dimension specifying the ID of the generated clusters
+  - figure on cluster sizes
+- `filters.eigenvalues`
+  - Filters like `filters.approximatecoplanar` use eigenvalues, but analysts may wish to precompute eigenvalues and operate directly on them
+  - Creates three new dimensions for the first, second, and third eigenvalues of each point
+  - figure on eigenvalues, maybe with MAD applied
+- `filters.elm`
+  - Extended Local Minimum seeks to identify outliers below the ground surface
+  - Marks outliers with Classification value of 7
+- `filters.estimaterank`
+  - Computes covariance of neighborhood of points and uses this to estimate the rank (linear, planar, volume)
+  - Creates new rank dimension
+  - figures, scatter and distplot, before and after ground filtering
+- `filters.groupby`
+  - Split the incoming PointView into separate PointViews by given criteria
+  - Allows us to operate on each individually (e.g., find centroid of each cluster)
+- `filters.hag`
+  - Creates new height above ground dimension
+- `filters.iqr`
+  - Filter points by evaluating InterQuartile Range for a given dimension
+  - (Noisy intensity)
+  - figures e.g., applied to LOF dimensions
+- `filters.kdistance`
+  - Compute the distance to the k-th nearest neighbor
+  - Creates new KDistance dimension
+- `filters.locate`
+  - Find min or max point in the incoming PointView (e.g., of a cluster)
+- `filters.lof`
+  - Local Outlier Factor
+  - Creates new dimensions for each step of the algorithm `KDistance`, `LocalReachabilityDistance`, and `LocalOutlierFactor`
+  - copy and insert lof.png
+- `filters.mad`
+  - Filter points by evaluating Median Absolute Deviation for a given dimension
+  - figures e.g., applied to LOF dimensions
+- `filters.radialdensity`
+  - Return the number of points within sphere of given radius
+  - Creates new RadialDensity dimension
+- `filters.smrf`
+  - New alternative to PMF, still uses morphological operators
+  - Marks ground points as Classification value of 2 (else 1)
+
+outlier? sample? new enough?
