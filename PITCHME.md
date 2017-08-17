@@ -379,7 +379,7 @@ Recall the kernel density of raw elevations...
   ]
 }
 ```
-@[10-13](Exclude ground returns \(HAG=0, by definition\))
+@[10-13](Exclude ground returns where HAG=0)
 
 +++
 
