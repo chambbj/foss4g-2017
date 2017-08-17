@@ -509,6 +509,7 @@ max            63.700000
 - `filters.estimaterank`
 - Compute covariance of neighborhoods of points and estimate rank
 - Potentially useful for identifying linear features, planes, etc.
+- Creates new `Rank` dimension
 
 +++
 
@@ -587,6 +588,13 @@ max            63.700000
 
 +++
 
+### Median Absolute Deviation
+
+- `filters.mad`
+- Filter points by evaluating Median Absolute Deviation for a given dimension
+
++++
+
 ![png](figures/mad-kdist.png)
 
 +++
@@ -596,6 +604,13 @@ max            63.700000
 +++
 
 ![png](figures/mad-lof.png)
+
++++
+
+### Interquartile Rnage
+
+- `filters.iqr`
+- Filter points by evaluating Interquartile Range for a given dimension
 
 +++
 
@@ -613,11 +628,27 @@ max            63.700000
 
 ### Clusters
 
+- `filters.cluster`
+- Cluster points by proximity (Euclidean distance)
+- Iterate over newly added points until no more points can be added
+- Creates a new integer dimension specifying the `ClusterID`
+
++++
+
 ![png](figures/cluster-sizes.png)
 
 +++
 
 ### Eigenvalues
+
+- `filters.eigenvalues`
+- Filters like `filters.approximatecoplanar` use eigenvalues, but analysts may wish to precompute eigenvalues and operate directly on them
+- Creates three new dimensions
+  - `Eigenvalue0`
+  - `Eigenvalue1`
+  - `Eigenvalue2`
+
++++
 
 ![png](figures/eigenvalues.png)
 
@@ -1279,43 +1310,19 @@ after = poisson
 - `filters.assign`
   - Assign a value to a `DimRange`
   - Handy for resetting classifications
-- `filters.cluster`
-  - Cluster points by proximity (Euclidean distance)
-  - Iterate over newly added points until no more points can be added
-  - Creates a new integer dimension specifying the ID of the generated clusters
-  - figure on cluster sizes
-- `filters.eigenvalues`
-  - Filters like `filters.approximatecoplanar` use eigenvalues, but analysts may wish to precompute eigenvalues and operate directly on them
-  - Creates three new dimensions for the first, second, and third eigenvalues of each point
-  - figure on eigenvalues, maybe with MAD applied
 - `filters.elm`
   - Extended Local Minimum seeks to identify outliers below the ground surface
   - Marks outliers with Classification value of 7
-- `filters.estimaterank`
-  - Computes covariance of neighborhood of points and uses this to estimate the rank (linear, planar, volume)
-  - Creates new rank dimension
-  - figures, scatter and distplot, before and after ground filtering
 - `filters.groupby`
   - Split the incoming PointView into separate PointViews by given criteria
   - Allows us to operate on each individually (e.g., find centroid of each cluster)
 - `filters.hag`
   - Creates new height above ground dimension
-- `filters.iqr`
-  - Filter points by evaluating InterQuartile Range for a given dimension
-  - (Noisy intensity)
-  - figures e.g., applied to LOF dimensions
 - `filters.kdistance`
   - Compute the distance to the k-th nearest neighbor
   - Creates new KDistance dimension
 - `filters.locate`
   - Find min or max point in the incoming PointView (e.g., of a cluster)
-- `filters.lof`
-  - Local Outlier Factor
-  - Creates new dimensions for each step of the algorithm `KDistance`, `LocalReachabilityDistance`, and `LocalOutlierFactor`
-  - copy and insert lof.png
-- `filters.mad`
-  - Filter points by evaluating Median Absolute Deviation for a given dimension
-  - figures e.g., applied to LOF dimensions
 - `filters.radialdensity`
   - Return the number of points within sphere of given radius
   - Creates new RadialDensity dimension
