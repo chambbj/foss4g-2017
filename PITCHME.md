@@ -559,6 +559,18 @@ max            63.700000
 
 +++
 
+### Clusters
+
+![png](figure/cluster-sizes.png)
+
++++
+
+### Eigenvalues
+
+![png](figure/eigenvalues.png)
+
++++
+
 ### Removing Noise
 
 This tutorial is meant to walk through the use of and theory behind PDAL's `outlier` filter.
