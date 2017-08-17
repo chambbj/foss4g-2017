@@ -42,13 +42,10 @@ Bradley J Chambers, DigitalGlobe
 
 ### Filter-only Pipelines
 
-<div align="left">
-We can now do filter-only pipelines. Why is that important? Well, you could always create the pipeline, and do substitution:
-</div>
-
 ```bash
 pdal pipeline pipeline.json --readers.las.filename=input.las --writers.las.filename=output.las
 ```
+@[1](We can now do filter-only pipelines. Why is that important? Well, you could always create the pipeline, and do substitution.)
 
 +++
 
@@ -95,8 +92,7 @@ pdal translate input.las output.las --json pipeline.json
   ]
 }
 ```
-
-<p style="font-size:0.6em">PCL JSON specifcation bumped to v0.2 → easier to embed in PDAL JSON</p>
+@[5-14](PCL JSON specifcation bumped to v0.2 → easier to embed in PDAL JSON)
 
 +++
 
