@@ -561,13 +561,13 @@ max            63.700000
 
 ### Clusters
 
-![png](figure/cluster-sizes.png)
+![png](figures/cluster-sizes.png)
 
 +++
 
 ### Eigenvalues
 
-![png](figure/eigenvalues.png)
+![png](figures/eigenvalues.png)
 
 +++
 
