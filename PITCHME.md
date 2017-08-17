@@ -10,7 +10,7 @@ Bradley J Chambers, DigitalGlobe
 
 * Python Package
 * Docker Images
-* IPython/Jupyter Examples
+* Python Examples
 * Status of PCL Filters
 * Filter-only Pipelines
 
@@ -32,7 +32,7 @@ Bradley J Chambers, DigitalGlobe
 
 ---
 
-### Docker Image
+### Docker Images
 
 | **Image** | **Tag** | **Size** |
 |---------|-------|--------|
@@ -449,6 +449,58 @@ min           -13.280000
 75%             7.810000
 max            63.700000
 ```
+
++++
+
+### Approximate Coplanar
+
+- `filters.approximatecoplanar`
+- Ratios of eigenvalues
+- Creates a new binary dimension called `Coplanar`
+
++++
+
+```json
+{
+  "pipeline":[
+    "./data/isprs/samp11-utm.laz",
+    {
+      "type":"filters.approximatecoplanar"
+    }
+  ]
+}
+```
+
++++
+
+![png](figures/coplanar-scatter.png)
+
++++
+
+```json
+{
+  "pipeline":[
+    "./data/isprs/samp11-utm.laz",
+    {
+      "type":"filters.smrf"
+    },
+    {
+      "type":"filters.hag"
+    },
+    {
+      "type":"filters.range",
+      "limits":"HeightAboveGround[2:)"
+    },
+    {
+      "type":"filters.approximatecoplanar"
+    }
+  ]
+}
+```
+
++++
+
+![png](figures/coplanar-scatter-nonground.png)
 
 +++
 
@@ -1224,9 +1276,6 @@ after = poisson
 
 ### Unorganized Extras
 
-- `filters.approximatecoplanar`
-  - Considers ratios of eigenvalues to approximate whether or not a point is part of a planar region
-  - Creates a new binary dimension specifying 0 (not planar) or 1 (planar)
 - `filters.assign`
   - Assign a value to a `DimRange`
   - Handy for resetting classifications
