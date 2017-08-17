@@ -508,6 +508,57 @@ max            63.700000
 
 +++
 
+### Local Outlier Factor
+
+- Local Outlier Factor
+- Creates three new dimensions
+  - `KDistance`
+  - `LocalReachabilityDistance`
+  - `LocalOutlierFactor`
+
++++
+
+```json
+{
+  "pipeline":[
+    "./data/isprs/samp11-utm.laz",
+    {
+      "type":"filters.lof"
+    }
+  ]
+}
+```
+
++++
+
+![lof](figures/lof.png)
+
++++
+
+![png](figures/mad-kdist.png)
+
++++
+
+![png](figures/mad-lrd.png)
+
++++
+
+![png](figures/mad-lof.png)
+
++++
+
+![png](figures/iqr-kdist.png)
+
++++
+
+![png](figures/iqr-lrd.png)
+
++++
+
+![png](figures/iqr-lof.png)
+
++++
+
 ### Removing Noise
 
 This tutorial is meant to walk through the use of and theory behind PDAL's `outlier` filter.
