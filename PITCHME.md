@@ -11,9 +11,9 @@ Bradley J Chambers, DigitalGlobe
 * Docker Images
 * Filter-only Pipelines
 * Status of PCL Filters
-* Filter Roundup
 * Python Package
 * Python Examples
+* Filter Roundup
 
 ---
 
