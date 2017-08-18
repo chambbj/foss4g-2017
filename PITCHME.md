@@ -377,8 +377,6 @@ dtype: float64
 
 +++
 
-#### Before
-
 ```json
 {
   "pipeline":[
@@ -395,8 +393,6 @@ dtype: float64
 @[1-11](Noise points are removed!)
 
 +++
-
-#### After
 
 ```json
 {
@@ -455,78 +451,6 @@ Recall the kernel density of raw elevations...
 ```
 
 ![KDE HAG](figures/initial-kde-hag.png)
-
-+++
-
-```json
-{
-  "pipeline":[
-    "./data/isprs/samp11-utm.laz",
-    {
-      "type":"filters.smrf"
-    },
-    {
-      "type":"filters.hag"
-    },
-    {
-      "type":"filters.range",
-      "limits":"Classification[1:1]"
-    }
-  ]
-}
-```
-@[10-13](Exclude ground returns where HAG=0)
-
-+++
-
-```python
->>> p = pdal.Pipeline(json)
->>> count = p.execute()
->>> df = pd.DataFrame(p.arrays[0])
->>> sns.kdeplot(df['HeightAboveGround'], cut=0, shade=True, vertical=True);
-```
-
-![KDE](figures/nonground-kde-hag.png)
-
-+++
-
-```json
-{
-  "pipeline":[
-    "./data/isprs/samp11-utm.laz",
-    {
-      "type":"filters.elm"
-    },
-    {
-      "type":"filters.range",
-      "limits":"Classification![7:7]"
-    },
-    {
-      "type":"filters.smrf"
-    },
-    {
-      "type":"filters.hag"
-    },
-    {
-      "type":"filters.range",
-      "limits":"Classification[1:1]"
-    }
-  ]
-}
-```
-@[4-6](Extended Local Minimum looks for low outliers)
-@[7-10](For this example, let's remove the noise points)
-
-+++
-
-```python
->>> p = pdal.Pipeline(json)
->>> count = p.execute()
->>> df = pd.DataFrame(p.arrays[0])
->>> sns.kdeplot(df['HeightAboveGround'], cut=0, shade=True, vertical=True);
-```
-
-![KDE](figures/nonground-kde-hag-with-elm.png)
 
 +++
 
