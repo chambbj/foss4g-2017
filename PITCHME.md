@@ -654,6 +654,18 @@ max            63.700000
 
 +++
 
+![kdist](figures/kdist.png)
+
++++
+
+![lrd](figures/lrd.png)
+
++++
+
+![lof](figures/lof-qt.png)
+
++++
+
 ### Locate
 
 - `filters.locate`
