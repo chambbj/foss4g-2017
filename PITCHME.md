@@ -11,6 +11,7 @@ Bradley J Chambers, DigitalGlobe
 * Docker Images
 * Filter-only Pipelines
 * Status of PCL Filters
+* Filter Roundup
 * Python Package
 * Python Examples
 
@@ -480,6 +481,10 @@ max            63.700000
 +++
 
 ![hag](figures/hag.png)
+
+---
+
+### Filter Roundup
 
 +++
 
