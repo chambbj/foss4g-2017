@@ -600,7 +600,7 @@ max            63.700000
 
 +++
 
-![rank scatter nonground](figures/rank-qt-nonground.png)
+![rank scatter nonground](figures/rank-qt-non-ground.png)
 
 +++
 
