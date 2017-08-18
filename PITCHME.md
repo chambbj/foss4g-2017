@@ -771,6 +771,18 @@ max            63.700000
 
 +++
 
+### Poisson Sampling
+
+- `filters.sample`
+- Poisson disk sampling
+- No two points can be closer than a given radius
+
++++
+
+![sample](figures/poisson.png)
+
++++
+
 ### Removing Noise
 
 This tutorial is meant to walk through the use of and theory behind one of PDAL's `outlier` filters.
