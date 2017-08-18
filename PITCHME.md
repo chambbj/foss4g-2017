@@ -432,6 +432,11 @@ dtype: float64
 
 ### Height Above Ground
 
+- `filters.hag`
+- Creates new `HeightAboveGround` dimension
+
++++
+
 1. [SMRF](https://pdal.io/stages/filters.smrf.html) to segment ground and non-ground returns
 2. [HAG](https://pdal.io/stages/filters.hag.html) to estimate the `HeightAboveGround` using the return information.
 
@@ -558,6 +563,13 @@ min           -13.280000
 75%             7.810000
 max            63.700000
 ```
++++
+
+### Assign
+
+- `filters.assign`
+- Assign a value to a `DimRange`
+- Handy for resetting classifications
 
 +++
 
@@ -610,6 +622,14 @@ max            63.700000
 +++
 
 ![png](figures/coplanar-scatter-nonground.png)
+
++++
+
+### Extended Local Minimum
+
+- `filters.elm`
+- Extended Local Minimum seeks to identify outliers below the ground surface
+- Marks outliers with `Classification` value of 7
 
 +++
 
@@ -670,6 +690,22 @@ max            63.700000
 
 +++
 
+### Groupby
+
+- `filters.groupby`
+- Split the incoming PointView into separate PointViews by given criteria
+- Allows us to operate on each individually (e.g., find centroid of each cluster)
+
++++
+
+### KDistance
+
+- `filters.kdistance`
+- Compute the distance to the k-th nearest neighbor
+- Creates new `KDistance` dimension
+
++++
+
 ### Local Outlier Factor
 
 - Local Outlier Factor
@@ -694,6 +730,13 @@ max            63.700000
 +++
 
 ![lof](figures/lof.png)
+
++++
+
+### Locate
+
+- `filters.locate`
+- Find and return only the min or max point in the incoming PointView (e.g., of a cluster)
 
 +++
 
@@ -760,6 +803,22 @@ max            63.700000
 +++
 
 ![png](figures/eigenvalues.png)
+
++++
+
+### Radial Density
+
+- `filters.radialdensity`
+- Return the number of points within sphere of given radius
+- Creates new `RadialDensity` dimension
+
++++
+
+### Simple Morphological Filter
+
+- `filters.smrf`
+- New alternative to PMF, still uses morphological operators
+- Marks ground points as `Classification` value of 2 (else 1)
 
 +++
 
@@ -1284,32 +1343,3 @@ after = poisson
 +++
 
 ![Compare](figures/compare-voxel-poisson.png)
-
-+++
-
-### Unorganized Extras
-
-- `filters.assign`
-  - Assign a value to a `DimRange`
-  - Handy for resetting classifications
-- `filters.elm`
-  - Extended Local Minimum seeks to identify outliers below the ground surface
-  - Marks outliers with Classification value of 7
-- `filters.groupby`
-  - Split the incoming PointView into separate PointViews by given criteria
-  - Allows us to operate on each individually (e.g., find centroid of each cluster)
-- `filters.hag`
-  - Creates new height above ground dimension
-- `filters.kdistance`
-  - Compute the distance to the k-th nearest neighbor
-  - Creates new KDistance dimension
-- `filters.locate`
-  - Find min or max point in the incoming PointView (e.g., of a cluster)
-- `filters.radialdensity`
-  - Return the number of points within sphere of given radius
-  - Creates new RadialDensity dimension
-- `filters.smrf`
-  - New alternative to PMF, still uses morphological operators
-  - Marks ground points as Classification value of 2 (else 1)
-
-outlier? sample? new enough?
