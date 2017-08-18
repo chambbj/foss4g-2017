@@ -512,7 +512,7 @@ max            63.700000
 
 +++
 
-![png](figures/coplanar-scatter.png)
+![png](figures/coplanar.png)
 
 +++
 
@@ -539,7 +539,7 @@ max            63.700000
 
 +++
 
-![png](figures/coplanar-scatter-nonground.png)
+![png](figures/coplanar-nonground.png)
 
 +++
 
