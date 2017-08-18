@@ -573,11 +573,7 @@ max            63.700000
 
 +++
 
-![rank distribution](figures/rank.png)
-
-+++
-
-![rank scatter](figures/rank-scatter.png)
+![rank scatter](figures/rank-qt.png)
 
 +++
 
@@ -604,7 +600,7 @@ max            63.700000
 
 +++
 
-![rank scatter nonground](figures/rank-scatter-nonground.png)
+![rank scatter nonground](figures/rank-qt-nonground.png)
 
 +++
 
