@@ -42,14 +42,51 @@ Bradley J Chambers, DigitalGlobe
 
 ### Filter-only Pipelines
 
-```bash
-pdal pipeline pipeline.json --readers.las.filename=input.las --writers.las.filename=output.las
++++
+
+```json
+{
+  "pipeline":[
+    "input.las",
+    {
+      "type":"filters.whatever",
+      "some":"options"
+    },
+    "output.laz"
+  ]
+}
 ```
-@[1](We can now do filter-only pipelines. Why is that important? Well, you could always create the pipeline, and do substitution.)
+@[3](Inferred reader)
+@[4-7](Filter with options)
+@[8](Inferred writer)
 
 +++
 
-Is now.
+```bash
+pdal pipeline pipeline.json
+```
+
++++
+
+```bash
+pdal pipeline pipeline.json --readers.las.filename=input.las --writers.las.filename=output.las
+```
+@[1](Override options from the CLI)
+
++++
+
+```json
+{
+  "pipeline":[
+    {
+      "type":"filters.whatever",
+      "some":"options"
+    }
+  ]
+}
+```
+
++++
 
 ```bash
 pdal translate input.las output.las --json pipeline.json
