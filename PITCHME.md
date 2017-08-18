@@ -397,8 +397,6 @@ dtype: float64
 
 #### Before
 
-Noise points are removed!
-
 ```json
 {
   "pipeline":[
@@ -412,12 +410,11 @@ Noise points are removed!
   ]
 }
 ```
+@[1-11](Noise points are removed!)
 
 +++
 
 #### After
-
-Noise points are left intact, just ignored.
 
 ```json
 {
@@ -429,6 +426,7 @@ Noise points are left intact, just ignored.
   ]
 }
 ```
+@[1-8](Noise points are left intact, just ignored.)
 
 +++
 
@@ -767,10 +765,7 @@ max            63.700000
 
 ### Removing Noise
 
-This tutorial is meant to walk through the use of and theory behind PDAL's `outlier` filter.
-
-- Statistical Outlier Filter
-- Radius Outlier Filter
+This tutorial is meant to walk through the use of and theory behind one of PDAL's `outlier` filters.
 
 +++
 
@@ -811,17 +806,16 @@ Let's begin by iterating through our DataFrame, keeping track of the mean distan
 
 +++
 
-The KDE plot of the mean distances looks something like this.
-
 ```python
 >>> sns.kdeplot(dists, cut=0, shade=True);
 ```
 
 ![Mean Distances](figures/mean-dists.png)
-
-Now, we compute the threshold as described.
+<p style="font-size:0.6em">KDE plot of mean distances.</p>
 
 +++
+
+Now, we compute the threshold as described.
 
 ```python
 >>> threshold = dists.mean() + 3 * dists.std()
@@ -836,13 +830,12 @@ Now, we compute the threshold as described.
 
 +++
 
-Now our KDE plot of mean distances looks like this.
-
 ```python
 >>> sns.kdeplot(signal, cut=0, shade=True);
 ```
 
 ![Signal](figures/mean-dists-signal.png)
+<p style="font-size:0.6em">Updated KDE plot after noise removal.</p>
 
 +++
 
