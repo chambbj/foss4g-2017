@@ -878,53 +878,6 @@ def sor(ins, outs):
 
 +++
 
-```python
-!pdal translate ./data/isprs/samp11-utm.laz ./data/foo.laz assign outlier \
-  --filters.assign.assignment="Classification[:]=0" \
-  --filters.outlier.method="statistical" \
-  --filters.outlier.multiplier=3 \
-  --filters.outlier.mean_k=8 \
-  --verbose 5
-```
-
-    (pdal translate filters.outlier Debug) 		Labeled 241 outliers as noise!
-    (pdal translate writers.las Debug) Wrote 38010 points to the LAS file
-
-+++
-
-```json
-{
-  "pipeline":[
-    "./data/isprs/samp11-utm.laz",
-    {
-      "type":"filters.assign",
-      "assignment":"Classification[:]=0"
-    },
-    {
-      "type": "filters.outlier",
-      "method": "statistical",
-      "multiplier": 3,
-      "mean_k": 8
-    }
-  ]
-}
-```
-
-+++
-
-```python
->>> p = pdal.Pipeline(json)
->>> p.loglevel = 8
->>> count = p.execute()
->>> print(p.log)
-```
-
-```bash
-(pypipeline filters.outlier Debug)     Labeled 241 outliers as noise!
-```
-
-+++
-
 ```json
 {
   "pipeline": [
