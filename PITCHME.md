@@ -680,14 +680,6 @@ max            63.700000
 
 +++
 
-![png](figures/mad-kdist.png)
-
-+++
-
-![png](figures/mad-lrd.png)
-
-+++
-
 ![png](figures/mad-lof.png)
 
 +++
@@ -696,14 +688,6 @@ max            63.700000
 
 - `filters.iqr`
 - Filter points by evaluating Interquartile Range for a given dimension
-
-+++
-
-![png](figures/iqr-kdist.png)
-
-+++
-
-![png](figures/iqr-lrd.png)
 
 +++
 
@@ -936,8 +920,7 @@ def sor(ins, outs):
 
 +++
 
-```python
-json = u'''
+```json
 {
   "pipeline": [
     "./data/isprs/samp11-utm.laz",
@@ -960,16 +943,14 @@ json = u'''
     }
   ]
 }
-
-'''
->>> p = pdal.Pipeline(json)
->>> count = p.execute()
->>> vo = pd.DataFrame(p.arrays[0], columns=['X','Y','Z','HeightAboveGround'])
 ```
 
 +++
 
 ```python
+>>> p = pdal.Pipeline(json)
+>>> count = p.execute()
+>>> vo = pd.DataFrame(p.arrays[0], columns=['X','Y','Z','HeightAboveGround'])
 >>> vo.describe()
 ```
 
