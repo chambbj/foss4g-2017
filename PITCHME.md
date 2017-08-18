@@ -763,6 +763,14 @@ max            63.700000
 
 +++
 
+![center](figures/voxelcenter.png)
+
++++
+
+![centroid](figures/voxelcentroid.png)
+
++++
+
 ### Removing Noise
 
 This tutorial is meant to walk through the use of and theory behind one of PDAL's `outlier` filters.
