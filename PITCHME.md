@@ -479,6 +479,10 @@ max            63.700000
 ```
 +++
 
+![hag](figures/hag.png)
+
++++
+
 ### Assign
 
 - `filters.assign`
