@@ -131,6 +131,14 @@ pdal translate input.las output.las --json pipeline.json
 ```
 @[5-14](PCL JSON specification bumped to v0.2 → easier to embed in PDAL JSON)
 
++++
+
+![before](figures/before-vg.png)
+
++++
+
+![after](figures/after-vg.png)
+
 ---
 
 ### Python Package
